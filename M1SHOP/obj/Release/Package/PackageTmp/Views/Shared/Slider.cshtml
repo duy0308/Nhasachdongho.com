@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Models.EF.M1Slide>
+<div class="container hidden-xs">
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-sm-12">
+            <!-- Insert to your webpage where you want to display the slider -->
+            <div id="amazingslider-wrapper-1" style="display:block;position:relative;max-width:1160px;margin:0px auto 6px;">
+                <div id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
+                    <ul class="amazingslider-slides" style="display:none;">
+                        @foreach(var s in Model)
+                        { 
+                        <li>
+                            <a href="@s.Link"><img src="@s.Image" alt="@s.Description" title="@s.Description" /></a>
+                        </li>
+                        }
+                    </ul>
+                    <ul class="amazingslider-thumbnails" style="display:none;">
+                        @foreach (var s in Model)
+                        {
+                            <li>
+                                <a href="@s.Link"><img src="@s.Image" alt="@s.Description" title="@s.Description" /></a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <!-- End of body section HTML codes -->
+        </div>
+    </div>
+</div>

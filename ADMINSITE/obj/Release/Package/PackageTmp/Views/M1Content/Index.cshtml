@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Models.EF.M1Content>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <h3>Quản lý các bài viết</h3>
+    <p class="pull-right">
+        <a href="/M1Content/Create" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Thêm mới</a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Tiêu đề bài viết
+            </th>
+            <th>
+                Nhóm bài viết
+            </th>
+           
+            <th>
+                Ngày tạo
+            </th>
+           
+            <th>
+                Ngày cập nhật
+            </th>
+
+            <th>
+                Hiển thị trên web
+            </th>
+          
+            <th>
+                Hiển thị trang chủ
+            </th>
+          
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.M1ContentCategory.Name)                    
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+           
+                <td>
+                    @Html.DisplayFor(modelItem => item.Is_Stick)
+                </td>
+              
+                <td>
+                    <a href="/M1Content/Edit/@item.ID" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> Sửa</a>
+
+                    <a href="/M1Content/Delete/@item.ID" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

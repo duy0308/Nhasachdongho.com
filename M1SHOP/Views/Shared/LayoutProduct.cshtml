@@ -1,0 +1,179 @@
+﻿
+<!DOCTYPE html>
+<html lang="en-US">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <meta property="og:url" content="@Request.Url.AbsoluteUri" />
+    <meta property="og:type" content="Product" />
+    <meta property="og:title" content="@ViewBag.Metatitle" />
+    <meta property="og:description" content="@ViewBag.Metadescription" />
+    <meta property="og:image" content="@ViewBag.Metaimage" />
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    @Styles.Render("~/bundles/csscore")
+
+    <link rel='stylesheet' id='awesome-css-css' href='/wp-content/themes/bigshop/css/font-awesomecce7.css' type='text/css' media='all' />
+    <style id='rs-plugin-settings-inline-css' type='text/css'>
+        #rs-demo-id {
+        }
+    </style>
+    
+    <link rel='stylesheet' id='jquery-selectBox-css' href='/wp-content/plugins/yith-woocommerce-wishlist/assets/css/jquery.selectBox7359.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='yith-magnifier-css' href='/wp-content/plugins/yith-woocommerce-zoom-magnifier/assets/css/yith_magnifier62d0.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='yith_wcmg_frontend-css' href='/wp-content/plugins/yith-woocommerce-zoom-magnifier/assets/css/frontend62d0.css' type='text/css' media='all' />
+    <script type='text/javascript' src='/wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min61da.js'></script>
+    <script type='text/javascript' src='/wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart0147.js'></script>
+    <script type='text/javascript' src='/wp-content/plugins/mega_main_menu/src/js/frontend62d0.js'></script>
+    <script type='text/javascript' src='/wp-content/themes/bigshop/js/jquery.wow8a54.js'></script>
+    <script type='text/javascript' src='/wp-content/themes/bigshop/js/bootstrap46df.js'></script>
+    <script type='text/javascript' src='/wp-content/themes/bigshop/js/modernizr.custom3d36.js'></script>
+    <script type='text/javascript' src='/wp-content/themes/bigshop/owl-carousel/owl.carousel4c56.js'></script>
+    <script type='text/javascript' src='/wp-content/themes/bigshop/js/autoGrid8a54.js'></script>
+    <script type='text/javascript' src='/wp-content/themes/bigshop/fancybox/jquery.fancyboxd63f.js'></script>
+    <script>
+        //paste this code under the head tag or in a separate js file.
+        // Wait for window load
+        $(window).load(function() {
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <style type="text/css" title="dynamic-css" class="options-output">
+        body {
+            background-color: #F3F3F3;
+        }
+
+        body {
+            font-family: Roboto;
+            font-weight: 400;
+            font-style: normal;
+            color: #3C3F44;
+            font-size: 14px;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: opacity 0.24s ease-in-out;
+            -moz-transition: opacity 0.24s ease-in-out;
+            transition: opacity 0.24s ease-in-out;
+        }
+
+        .wf-loading body, {
+            opacity: 0;
+        }
+
+        .ie.wf-loading body, {
+            visibility: hidden;
+        }
+    </style>
+    <style>
+        .wishlist_table .add_to_cart, a.add_to_wishlist.button.alt {
+            border-radius: 16px;
+            -moz-border-radius: 16px;
+            -webkit-border-radius: 16px;
+        }
+    </style>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            .wpb_animate_when_almost_visible {
+                opacity: 1;
+            }
+        </style>
+    </noscript>
+</head>
+<body class="single single-product postid-303 mmm mega_main_menu-2-1-2 woocommerce woocommerce-page bigshop-animate-scroll wpb-js-composer js-comp-ver-4.12 vc_responsive">
+    <script>
+window.fbAsyncInit = function() {
+FB.init({
+    appId      : '530227913843175',
+    xfbml      : true,
+    version    : 'v2.7'
+});
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="se-pre-con"></div>
+
+<div class="main-wrapper ">
+        <header>
+            <div class="header-container first">
+                @Html.Partial("_topbar")
+
+                <div class="header">
+                    <div class="container">
+                        <div class="row hidden-xs">
+                            @Html.Action("Logo", "Home")
+                            <!--KHUNG TÌM KIẾM-->
+                            @Html.Action("MathangLoaiTK", "Home")
+
+                            <!-- CART INFO -->
+                            @Html.Partial("_CartInfo")
+                            <!-- END CART INFO -->
+                        </div>
+
+                        <div class="mobile-top-cart row hidden-lg hidden-md hidden-sm">
+                            @Html.Action("LogoMobi", "Home")
+                            <div class="cart-container col-xs-8 mg-20-0">
+                                <div class="shoping_cart pull-right">
+                                    <div class="widget woocommerce widget_shopping_cart"><div class="widget_shopping_cart_content"></div></div>
+                                </div>
+                            </div>
+                            <!--- SEARCH NGANG CHO MOBILE -->
+                            @Html.Action("MathangLoaiTKMobi", "Home")
+                            <!---  END SEARCH NGANG CHO MOBILE -->
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--MENU NGANG-->
+                @Html.Action("MathangLoai", "Home")
+                <!-- END MENU NGANG-->
+                <div class="clearfix"></div>
+
+            </div>
+        </header>
+        @RenderBody()
+
+        <!--.site-content-->
+        @Html.Action("Footer", "Home")
+        <div id="back-top" class="hidden-xs"><i class="fa fa-angle-up"></i></div>
+        @*@Html.Partial("_Socical")*@
+    </div>
+    <!--.main wrapper-->
+    @Scripts.Render("~/bundles/ScriptsFoot")
+    <script type='text/javascript' src='/wp-content/plugins/woocommerce/assets/js/frontend/single-product.min61da.js'></script>
+    <script type='text/javascript' src='/wp-content/plugins/yith-woocommerce-zoom-magnifier/assets/js/jquery.carouFredSel.min5fb2.js'></script>
+    <script type='text/javascript' src='/wp-content/plugins/yith-woocommerce-zoom-magnifier/assets/js/yith_magnifier.min5fb2.js'></script>
+    <script type='text/javascript' src='/wp-content/plugins/yith-woocommerce-zoom-magnifier/assets/js/frontend.min5fb2.js'></script>
+
+    <script type='text/javascript'>
+/* <![CDATA[ */
+var wc_single_product_params = {"i18n_required_rating_text":"Please select a rating","review_rating_required":"yes"};
+/* ]]> */
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿@model Models.EF.M1Slide
+@{
+    ViewBag.Title = "Quản lý Slides";
+}
+<style>
+    input{
+        width:100%;
+    }
+    div{
+        margin-top:10px;
+    }
+</style>
+@using (Html.BeginForm())
+{
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-2">Link hình ảnh</div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Image, new { @class = "form-control", required = true } )
+                        Link ảnh: http://kiembac.com/upload/tenhinhanh.jpg<br />
+                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2">Link liên kết</div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Link, new { @class = "form-control", required = true, value = "#" })
+                        Link liên kết là liên kết đến một trang web. Ví dụ: http://kiembac.com<br />
+                        @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+               
+                <div class="form-group">
+                    <div class="col-md-2">Thứ tự hiển thị  </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.DisplayOrder, new { @class = "form-control", type = "number", required = true, value = "1" })
+                        <div>Số thứ tự là số nguyên.<br /></div>
+                        @Html.ValidationMessageFor(model => model.DisplayOrder, "", new { @class = "text-danger" })
+                    </div>
+                    
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12"> </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-2">Ghi chú nếu có</div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                 
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-3">
+                        <input type="submit" value="Thêm mới" class="btn btn-success" />
+                    </div>
+                </div>
+}
+                <table class="table table-hover">
+                    <thead> <tr> <th>STT</th> <th>Hình ảnh</th>  <th></th></tr> </thead>
+                    <tbody>
+                        @{ int s = 0;}
+                        @foreach (var i in ViewBag.Sildes)
+                        {
+                            s++;
+                            <tr>
+                                <th scope="row">@s</th>
+                                <td><img src="@i.Image" width="500" height="100" /></td>
+                                <td><a href="#" class="remove-from-cart" data-id="@i.ID">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a></td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+   <script>
+    $(function () {
+        $(".remove-from-cart").click(function () {
+            pid = $(this).attr("data-id");
+            $.ajax({
+                url: "/Home/Remove",
+                data: { id: pid },
+                success: function (response) {
+                    $("#cart-count").html(response.Count + " items");
+                    $("#cart-amount").html("$ " + response.Amount);
+                }
+            });
+            $(this).parents("tr").hide(500);
+            return false;
+        });
+    });
+</script> 

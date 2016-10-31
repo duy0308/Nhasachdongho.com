@@ -1,0 +1,255 @@
+﻿@model PagedList.IPagedList<Models.EF.M1Product>
+@using PagedList.Mvc;
+@{
+    //ViewBag.Title = Model.NameWEB;
+    //ViewBag.Metatitle = Model.MetaTitle;
+    //ViewBag.Metadescription = Model.MetaDescriptions;
+    //ViewBag.Metaimage = Request.Url.Host + "" + Model.Image;
+    Layout = "~/Views/Shared/ProductList.cshtml";
+}
+<style>
+    .product-wrapper {
+        height: 400px;
+    }
+
+    .product-image {
+        height: 260px !important;
+    }
+</style>
+<div id="archive-product" class="col-xs-12 col-md-9">
+    <div class="category-desc">
+    </div>
+    <div class="archive-border">
+
+        <div class="shop-categories categories row">
+        </div>
+        <div class="toolbar">
+            <div class="view-mode">
+                <label>View on</label>
+                <a href="javascript:void(0)" class="grid  active" title="Grid"><i class="fa fa-th"></i></a>
+                <a href="javascript:void(0)" class="list " title="List"><i class="fa fa-list"></i></a>
+            </div>
+            @*<p class="woocommerce-result-count">Showing 1&ndash;12 of 51 results</p>*@
+            <form class="woocommerce-ordering" method="get">
+                <select name="orderby" class="orderby button-nice">
+                    <option value="menu_order" selected='selected'>Default sorting</option>
+                    <option value="popularity">Sort by popularity</option>
+                    <option value="rating">Sort by average rating</option>
+                    <option value="date">Sort by newness</option>
+                    <option value="price">Sort by price: low to high</option>
+                    <option value="price-desc">Sort by price: high to low</option>
+                </select>
+            </form>
+            <div class="clearfix"></div>
+        </div>
+
+
+
+        <!---HIỂN THỊ SẢN PHẨM BẰNG AJAX-->
+        <div class="shop-products products row grid-view sidebar">
+            @foreach (var p in Model)
+            {
+                <div class="item-col col-xs-12 col-sm-4 post-304 product type-product status-publish has-post-thumbnail product_cat-lends instock shipping-taxable purchasable product-type-simple">
+                    <div class="product-wrapper">
+                        <a href="/san-pham/@p.SeoTitle-@p.ID" class="woocommerce-LoopProduct-link">
+                            <div class="list-col4 ">
+                                <div class="product-image">
+                                    <a href="/san-pham/@p.SeoTitle-@p.ID" title="@p.NameWEB">
+                                        <img width="270" height="200" src="@p.Image" class="primary_image wp-post-image" alt="c3-4" />
+                                        <img width="270" height="200" src="@p.Image" class="secondary_image" />	<span class="shadow"></span>
+                                    </a>
+
+                                    <div class="quickviewbtn hidden-xs">
+                                        <a class="detail-link" href="/san-pham/@p.SeoTitle-@p.ID" title="@p.NameWEB"><i class="fa fa-external-link"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-col8 ">
+                                <div class="gridview">
+                                    <div class="product-info">
+                                        <h2 class="product-name">
+                                            <a href="/san-pham/@p.SeoTitle-@p.ID">@p.NameWEB</a>
+                                        </h2>
+                                        <div class="ratings"><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i></div>
+                                        <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}"); VNĐ</span></div>
+                                    </div>
+                                    <div class="actions">
+                                        <ul class="add-to-links clearfix">
+                                            <li>
+                                                <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
+
+                                                    <span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}");VNĐ</span>
+                                                    <a rel="nofollow" href="/Cart/AddSL/@p.ID" class="button product_type_simple">Thêm vào giỏ hàng</a>
+                                                </p>
+                                            </li>
+
+                                            <li>
+
+                                                <div class="yith-wcwl-add-to-wishlist add-to-wishlist-304">
+                                                    <div class="yith-wcwl-add-button show" style="display:block">
+                                                        <a href="#" rel="nofollow" data-product-id="304" data-product-type="simple" class="add_to_wishlist">
+                                                            Add to Wishlist
+                                                        </a>
+
+                                                    </div>
+
+                                                    <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+                                                        <span class="feedback">Product added!</span>
+                                                        <a href="#" rel="nofollow">
+                                                            Browse Wishlist
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+                                                        <span class="feedback">The product is already in the wishlist!</span>
+                                                        <a href="#" rel="nofollow">
+                                                            Browse Wishlist
+                                                        </a>
+                                                    </div>
+
+                                                    <div style="clear:both"></div>
+                                                    <div class="yith-wcwl-wishlistaddresponse"></div>
+
+                                                </div>
+
+                                                <div class="clear"></div>
+                                            </li>
+                                            @*<li>
+                                                    <div class="woocommerce product compare-button"><a href="index5f94.html?action=yith-woocompare-add-product&amp;id=304" class="compare button" data-product_id="304" rel="nofollow">Compare</a></div>
+                                                </li>*@
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="listview">
+                                    <div class="product-info">
+                                        <h2 class="product-name">
+                                            <a href="/san-pham/@p.SeoTitle-@p.ID">@p.NameWEB</a>
+                                        </h2>
+                                        <div class="ratings"><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i></div>
+                                        <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}"); VNĐ</div>
+                                        <div class="product-desc">
+                                            <p>@p.Description</p>
+                                        </div>
+                                    </div>
+                                    <div class="actions">
+                                        <ul class="add-to-links clearfix">
+                                            <li>
+                                                <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
+
+                                                    <span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}"); VNĐ</span>
+                                                    <a rel="nofollow" href="/Cart/AddSL/@p.ID" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
+                                                </p>
+                                            </li>
+
+                                            <li>
+
+                                                <div class="yith-wcwl-add-to-wishlist add-to-wishlist-304">
+                                                    <div class="yith-wcwl-add-button show" style="display:block">
+
+
+                                                        <a href="index18a9.html?add_to_wishlist=304" rel="nofollow" data-product-id="304" data-product-type="simple" class="add_to_wishlist">
+                                                            Add to Wishlist
+                                                        </a>
+
+                                                    </div>
+
+                                                    <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+                                                        <span class="feedback">Product added!</span>
+                                                        <a href="wishlist/view/index.html" rel="nofollow">
+                                                            Browse Wishlist
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+                                                        <span class="feedback">The product is already in the wishlist!</span>
+                                                        <a href="wishlist/view/index.html" rel="nofollow">
+                                                            Browse Wishlist
+                                                        </a>
+                                                    </div>
+
+                                                    <div style="clear:both"></div>
+                                                    <div class="yith-wcwl-wishlistaddresponse"></div>
+
+                                                </div>
+
+                                                <div class="clear"></div>
+                                            </li>
+                                            @*<li>
+                                                    <div class="woocommerce product compare-button"><a href="index5f94.html?action=yith-woocompare-add-product&amp;id=304" class="compare button" data-product_id="304" rel="nofollow">Compare</a></div>
+                                                </li>*@
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+        <!---------------------------------------------------------------------------------------->
+        <!--PHÂN TRANG-->
+        @Html.PagedListPager(Model, page => Url.Action("ProductListView", new { page }))
+
+        <div class="toolbar tb-bottom row" style="text-align:center;">
+
+            @*<nav class="woocommerce-pagination">
+
+                    <ul class='page-numbers' style="float:right">
+                        <li><img class="loading" src="/Images/loading.gif" /></li>
+
+
+                       <li><span class='page-numbers current'>Xem thêm các sản phẩm khác...</span></li>
+                        <li><a class='page-numbers' id="more" href='javascripts:;'>Xem thêm các sản phẩm khác...</a></li>
+
+                        <li><a class='page-numbers' href='page/3/index.html'>3</a></li>
+                            <li><a class='page-numbers' href='page/4/index.html'>4</a></li>
+                            <li><a class='page-numbers' href='page/5/index.html'>5</a></li>
+                            <li><a class="next page-numbers" id="more" href="#">&rarr;</a></li>
+                    </ul>
+                </nav>*@
+
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+        $pageNo = 0;
+        $MHLID = 0;
+        $pageCount = @ViewBag.PageCount;
+        $(function () {
+            loadPage();
+            $("#more").click(function () {
+                if ($pageNo < $pageCount-1) {
+                    $pageNo++;
+                    loadPage();
+                }
+
+            });
+            //$(window).scroll(function () {
+            //    if ($(window).height() + $(window).scrollTop() == $(document).height()) {
+            //        if ($pageNo < $pageCount-1) {
+            //            $pageNo++;
+            //            loadPage();
+            //        }
+            //    }
+            //});
+        });
+
+        function loadPage() {
+            $(".loading").show();
+            $.ajax({
+                url: "/Product/LoadPage",
+                data: { PageNo: $pageNo, idLMH: $MHLID},
+                success: function (response) {
+                    $(response).appendTo(".products");
+                    $(".loading").hide();
+                }
+            });
+        }
+</script>
+

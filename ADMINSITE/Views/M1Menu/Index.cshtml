@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Models.EF.M1Menu>
+
+@{
+    ViewBag.Title = "Quản lý Menu";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<h2>Quản lý Menu</h2>
+<div class="col-md-12">
+    <p class="pull-right">
+        <a href="/M1Menu/Create" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Thêm mới menu</a>
+    </p>
+    <table class="table">
+        <tr>
+           
+            <th>
+                Tên menu
+            </th>
+            <th>
+                Liên kết
+            </th>
+            <th>
+                Thứ tự hiển thị
+            </th>
+            <th>
+                Loại menu
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Text)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Link)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DisplayOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.M1MenuType.Name)
+                </td>
+
+                <td>
+                    <a href="/M1Menu/Edit/@item.ID" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> Sửa</a>
+
+                    <a href="/M1Menu/Delete/@item.ID" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

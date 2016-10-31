@@ -1,0 +1,69 @@
+﻿@model Models.EF.M1Product
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/LayoutHeader.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div id="archive-product" class="col-xs-12 col-md-12">
+        <div class="archive-border">
+            <div class="shop-products products row grid-view sidebar">
+                <div class="panel panel-success">
+                    <div class="panel-heading"> <h3 class="panel-title">Bạn muốn đặt hàng với số lượng là bao nhiêu ?</h3> </div>
+                    <div class="panel-body">
+
+                        <table class="table table-hover table-responsive" style="width:100%">
+                            <thead>
+                                <tr style="text-align:center">
+                                    <th>Tên sản phẩm</th>
+                                    <th>Đơn giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    @Html.HiddenFor(model => model.ID)
+                                    <td>
+                                        <a href="/san-pham/@Model.SeoTitle-@Model.ID">
+                                            <img class="img-responsive img-thumbnail pull-left" src="/Images/Product/@Model.Image" style="max-height:100px" /><br />
+                                            <p class="pull_to_other_side">@Model.NameWEB</p>
+                                        </a>
+                                    </td>
+                                    <td id="giabanle" style="text-align:center">@Html.FormatValue(Model.Price, "{0:0}")</td>
+                                    <td style="text-align:center"><input id="soluong" type="number" name="soluong" min="1" max="100" value="1"></td>
+                                    <td id="tongtien" style="text-align:center"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <input type="submit" value="Thêm vào giỏ hàng" class="btn btn-success pull-right" style="margin-right:50px;" />
+                            <a href="/Order/muanhanh/@Model.ID" class="btn btn-danger pull-right" style="margin-left:20px"><span class="glyphicon glyphicon-ok-sign" style="margin-right:10px;"></span> Mua ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<style>
+    th {
+        text-align: center;
+    }
+</style>
+
+<script>
+    $(function () {
+        $("#soluong").change("change paste keyup", function () {
+            number = $(this).val();
+            giatien = $("#giabanle").text();
+            var tongtien = number * giatien;
+            //alert(tongtien);
+            $('#tongtien').html(tongtien);
+        });
+
+        $("#soluong").change();
+    });
+</script>

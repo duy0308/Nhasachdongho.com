@@ -1,0 +1,213 @@
+﻿@model Models.EF.M1Product
+@using ADMINSITE.Controllers;
+@{
+    ViewBag.Title = "Cập nhật thông tin mặt hàng";
+}
+<style>
+    input, textarea {
+        width: 100%;
+    }
+
+    div {
+        margin-top: 5px;
+    }
+</style>
+
+
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { id = Model.ID }))
+{
+    <div class="container">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.Name)
+        @Html.HiddenFor(model => model.Quantity)
+        @Html.HiddenFor(model => model.Warranty)
+        @Html.HiddenFor(model => model.CategoryIDS)
+        @Html.HiddenFor(model => model.CreatedDate)
+        @Html.HiddenFor(model => model.CreatedBy)
+        @Html.HiddenFor(model => model.TopHot)
+        @Html.HiddenFor(model => model.ViewCount)
+        @Html.HiddenFor(model => model.Code)
+
+        <div>
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Thông tin sản phẩm</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Thông tin SEO</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Thông tin khác</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="home">
+                    <div class="row">
+                        <div class="col-md-2">Mặt hàng CODE</div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.Code, new { @readonly = true })
+                            @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Tên mặt hàng</div>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.NameWEB, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.NameWEB, "", new { @class = "text-danger", required = true })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Giá bán</div>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Price, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger", required = true })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Giá bán khuyến mãi</div>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.PromotionPrice, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.PromotionPrice, "", new { @class = "text-danger", required = true })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Phần trăm Giảm giá </div>
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.Discount, new { @class = "form-control", Requestrequired = true })
+                            @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Giá đã có V.A.T</div>
+                        <div class="col-md-1">
+                            @Html.CheckBoxFor(model => model.IncludedVAT)
+                            @Html.ValidationMessageFor(model => model.IncludedVAT, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Hình ảnh cho sản phẩm</div>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.Image,  new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Nhà cung cấp</div>
+                        <div class="col-md-9">
+                            @Html.DropDownList("SupplierID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">Loại mặt hàng</div>
+                        <div class="col-md-9">
+                            @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Thông tin tóm tắt - Description </div>
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = "4" } )
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-2"> Nội dung chi tiết - Detail</div>
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                            <script type="text/javascript">CKEDITOR.replace('Detail'); </script>
+                            </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"> Hiển thị lên Web</div>
+                    <div class="col-md-1">
+                        @Html.CheckBoxFor(model => model.Status)
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        Đánh dấu chú ý:
+                    </div>
+                    <div class="col-md-1">
+                        @Html.CheckBoxFor(model => model.Is_Stick)
+                        @Html.ValidationMessageFor(model => model.Is_Stick, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">  Sản phẩm đặt biệt</div>
+                    <div class="col-md-1">
+                        @Html.CheckBoxFor(model => model.Is_special)
+                        @Html.ValidationMessageFor(model => model.Is_special, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Hiển thị trang chủ</div>
+                    <div class="col-md-1">
+                        @Html.CheckBoxFor(model => model.Showhome)
+                        @Html.ValidationMessageFor(model => model.Showhome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <!-----------THÔNG TIN SEO -->
+            <div role="tabpanel" class="tab-pane fade" id="profile">
+                <div class="row">
+                    <div class="col-md-2">SeoTitle</div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.SeoTitle, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SeoTitle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">MetaTitle</div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.MetaTitle, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MetaTitle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-2">MetaKeywords</div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.MetaKeywords, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">Meta Descriptions: Nội dung tóm tắt share Facebook</div>
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(model => model.MetaDescriptions, new { @class = "form-control", rows = "4" })
+                        @Html.ValidationMessageFor(model => model.MetaDescriptions, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">Tag cho sản phẩm</div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.Tags, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Tags, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <!-----THÔNG TIN KHÁC-->
+            <div role="tabpanel" class="tab-pane fade" id="settings">Tạm thời chưa có gì ^_^</div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+                <input type="submit" value="Cập nhật" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+@Html.ActionLink("Back to List", "Index")
+

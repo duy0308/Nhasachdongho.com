@@ -1,0 +1,74 @@
+﻿@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "Product", Action = "GridViewPartial" };
+
+        settings.KeyFieldName = "ID";
+        settings.SettingsLoadingPanel.Enabled = false;
+        settings.ClientSideEvents.BeginCallback = "function(s, e) { LoadingPanel.Show(); }";
+        settings.ClientSideEvents.EndCallback = "function(s, e) { LoadingPanel.Hide(); }";
+        //settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Product", Action = "GridViewPartialAddNew" };
+        //settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Product", Action = "GridViewPartialUpdate" };
+        //settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Product", Action = "GridViewPartialDelete" };
+        //settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        //settings.SettingsBehavior.ConfirmDelete = true;
+
+        //settings.CommandColumn.Visible = true;
+        //settings.CommandColumn.ShowNewButton = false;
+        //settings.CommandColumn.ShowDeleteButton = false;
+        //settings.CommandColumn.ShowEditButton = false;
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.PageSize = 20;
+        settings.SettingsPager.SEOFriendly = SEOFriendlyMode.Enabled;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "10", "15", "20", "25", "30", "35", "40", "45", "50", "100" };
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCellsWindowLimit;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Left;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        //settings.Columns.Add("ID");
+        settings.Columns.Add("NameWEB", "Tên mặt hàng");
+        settings.Columns.Add("Code", "Mặt hàng CODE");
+        settings.Columns.Add("Price", "Giá bán").PropertiesEdit.DisplayFormatString = "#,##0";
+        settings.Columns.Add("Status", "Hiển thị Web", MVCxGridViewColumnType.CheckBox);
+        settings.Columns.Add("Showhome", "Hiển thị trang chủ", MVCxGridViewColumnType.CheckBox);
+        settings.Columns.Add("CreatedDate", "Ngày nhập").PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
+        settings.Columns.Add("ModifiedDate", "Ngày cập nhật").PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "#";
+            column.SetDataItemTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(
+                    Html.ActionLink("Edit", "Edit", new { id = DataBinder.Eval(c.DataItem, "ID") })// + "&nbsp;" //+
+                                                                                                   //Html.ActionLink("Delete", "ExternalEditFormDelete", new { ProductID = DataBinder.Eval(c.DataItem, "ID") },
+                                                                                                   //    new { onclick = "return confirm('Do you really want to delete this record?')" })
+                );
+            });
+            //column.SetHeaderTemplateContent(c =>
+            //{
+            //    ViewContext.Writer.Write(
+            //        Html.ActionLink("New", "New", new { ProductID = -1 }).ToHtmlString()
+            //    );
+            //});
+            column.Settings.AllowDragDrop = DefaultBoolean.False;
+            column.Settings.AllowSort = DefaultBoolean.False;
+            column.Width = 70;
+        });
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

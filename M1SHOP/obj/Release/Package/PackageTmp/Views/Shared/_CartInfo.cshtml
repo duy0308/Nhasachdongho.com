@@ -1,0 +1,40 @@
+﻿<div class="cart-container col-lg-3 col-sm-6 col-md-3 col-xs-6">
+    <div class="shoping_cart pull-right">
+        <div class="widget woocommerce widget_shopping_cart">
+            <div class="widget_shopping_cart_content">
+                <div class="topcart">
+                    <div class="box_cart cart-image">
+                        <p><a href="/Cart">Giỏ hàng</a></p>
+                        <span class="box ajax_cart_quantity" id="cart-count">@M1SHOP.Models.CartShopping.Cart.Count sản phẩm</span>
+                        <span class="sep">-</span>
+                        <span class="cart_block_total ajax_block_cart_total" id="cart-amount">@Html.FormatValue(@M1SHOP.Models.CartShopping.Cart.tongcong, "{0:#,###}")</span>
+                    </div>
+                    <a class="cart-toggler" href="javascript:void(0)"><span class="shopping-cart"></span></a>
+                    <div class="topcart_content" style="display: none; width:300px!important">
+                        <ul class="cart_list product_list_widget ">
+                           @foreach (var p in M1SHOP.Models.CartShopping.Cart.Items)
+                           {
+                            <li class="mini_cart_item">
+                                <a href="#" class="remove" title="Remove this item" data-product_id="175" data-product_sku="demo_17">×</a>
+                                <img width="180" height="180" src="/Images/Product/@p.Image" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="@p.NameWEB" sizes="(max-width: 180px) 100vw, 180px">						
+                                <div class="item-info" style="width:150px;">
+                                    <a href="#">
+                                        @p.NameWEB
+                                    </a>
+                                    <span class="quantity">@Html.FormatValue(p.Price, "{0:#,###}")<span class="quantity-formated"> × @p.Quantity</span></span>
+                                </div>
+                            </li>
+                           }
+
+                        </ul><!-- end product list -->
+
+                        <div class="total">Tổng cộng:<span class="woocommerce-Price-amount amount">@Html.FormatValue(M1SHOP.Models.CartShopping.Cart.tongcong, "{0:#,###}") VNĐ</div>
+                        <div class="buttons">
+                            <a href="#" class="btn btn-default">Đặt hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

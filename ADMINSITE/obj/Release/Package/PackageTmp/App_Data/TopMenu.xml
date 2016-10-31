@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item Text="Trang chủ" NavigateUrl="/" />
+  <item Text="Quản lý sản phẩm" NavigateUrl="/Product"  />
+  <item Text="Upload Ảnh" NavigateUrl="http://up.kiembac.com" Target = "_blank" />
+</items>

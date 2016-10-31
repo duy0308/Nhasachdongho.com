@@ -1,0 +1,30 @@
+﻿@model Models.EF.M1Orders
+@{
+    ViewBag.Title = "Quản lý đơn hàng";
+    Layout = null;
+}
+<div class="panel panel-primary" style="margin:5px;">
+    <div class="panel-heading"> <h3 class="panel-title">CẬP NHẬT TRẠNG THÁI ĐƠN HÀNG: @Model.MaDonHang</h3> </div>
+    <div class="panel-body">
+        <!--------------------------------------------------------------------------------------------->
+        @using (Html.BeginForm())
+        {
+            Html.HiddenFor(m => m.ID);
+            var trangthai = Model.Status;
+            <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="status" class="btn-group" data-toggle="buttons">
+                        @Html.RadioButton("Trangthai", 1) 1. Đang chờ duyệt<br />
+                        @Html.RadioButton("Trangthai", 2) 2. Đã duyệt, chờ giao hàng<br />
+                        @Html.RadioButton("Trangthai", 3) 3. Đang giao hàng<br />
+                        @Html.RadioButton("Trangthai", 4) 4. Trả hàng<br />
+                        @Html.RadioButton("Trangthai", 5) 5. Đã hoàn tất<br />
+                    </div>
+                    <div style="margin-top:20px">
+                        <button class="btn btn-block btn-primary btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Cập nhật</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

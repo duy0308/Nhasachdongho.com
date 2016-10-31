@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <meta property="og:url" content="@Request.Url.AbsoluteUri" />
+    <meta property="og:type" content="Detail" />
+    <meta property="og:title" content="@ViewBag.Metatitle" />
+    <meta property="og:description" content="@ViewBag.Metadescription" />
+    <meta property="og:image" content="@ViewBag.Metaimage" />
+    <style>
+        .wishlist_table .add_to_cart, a.add_to_wishlist.button.alt {
+            border-radius: 16px;
+            -moz-border-radius: 16px;
+            -webkit-border-radius: 16px;
+        }
+    </style>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/ScriptsCore")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="/Scripts/jqueryui/jquery-ui.min.js"></script>
+    <link href="/Scripts/jqueryui/jquery-ui.min.css" rel="stylesheet" />
+    @Styles.Render("~/bundles/csscore")
+    <script>
+        //paste this code under the head tag or in a separate js file.
+        // Wait for window load
+        $(window).load(function() {
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <link rel='stylesheet' id='awesome-css-css' href='/wp-content/themes/bigshop/css/font-awesomecce7.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='theme-options-css' href='/wp-content/themes/bigshop/css/theme62d0.css' type='text/css' media='all' />
+    
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="/wp-content/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="/wp-content/vc-ie8.min.css" media="screen"><![endif]-->
+       
+    <style type="text/css" title="dynamic-css" class="options-output">
+        body {
+            background-color: #F3F3F3;
+        }
+
+        body {
+            font-family: Roboto;
+            font-weight: 400;
+            font-style: normal;
+            color: #3C3F44;
+            font-size: 14px;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: opacity 0.24s ease-in-out;
+            -moz-transition: opacity 0.24s ease-in-out;
+            transition: opacity 0.24s ease-in-out;
+        }
+
+        .wf-loading body, {
+            opacity: 0;
+        }
+
+        .ie.wf-loading body, {
+            visibility: hidden;
+        }
+    </style>
+    <noscript>
+    <style type="text/css">
+        .wpb_animate_when_almost_visible {
+            opacity: 1;
+        }
+    </style></noscript>
+</head>
+<body class="archive post-type-archive post-type-archive-product mmm mega_main_menu-2-1-2 woocommerce woocommerce-page bigshop-animate-scroll wpb-js-composer js-comp-ver-4.12 vc_responsive">
+    <script>
+window.fbAsyncInit = function() {
+FB.init({
+    appId      : '530227913843175',
+    xfbml      : true,
+    version    : 'v2.7'
+});
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="se-pre-con"></div>
+       <div class="main-wrapper ">
+
+        <header>
+
+            <div class="header-container first">
+                @Html.Partial("_topbar")
+
+                <div class="header">
+                    <div class="container">
+                        <div class="row hidden-xs">
+                           @Html.Action("Logo", "Home")
+                            <!--KHUNG TÌM KIẾM-->
+                            @Html.Action("MathangLoaiTK", "Home")
+                            <!-- CART INFO -->
+                            @Html.Partial("_CartInfo")
+                            <!-- END CART INFO -->
+                        </div>
+
+                        <div class="mobile-top-cart row hidden-lg hidden-md hidden-sm">
+                           @Html.Action("LogoMobi", "Home")
+                            <div class="cart-container col-xs-8 mg-20-0">
+                                <div class="shoping_cart pull-right">
+                                    <div class="widget woocommerce widget_shopping_cart"><div class="widget_shopping_cart_content"></div></div>
+                                </div>
+                            </div>
+                            <!--- SEARCH NGANG CHO MOBILE -->
+                            @Html.Action("MathangLoaiTKMobi", "Home")
+                            <!---  END SEARCH NGANG CHO MOBILE -->
+                        </div>
+
+                    </div>
+                </div>
+                <!--MENU NGANG-->
+                @Html.Action("MathangLoai", "Home")
+                <!-- END MENU NGANG-->
+                <div class="clearfix"></div>
+            </div>
+        </header>
+        <div id="content" class="site-content">
+            <div class="main-container">
+                <div class="page-content">
+                    <div class="container">
+                        <div id="container">
+                            <div id="content" role="main"><nav class="woocommerce-breadcrumb"><a href="/"><i class="fa fa-home"></i>Home</a>@*<span class="divider fa fa-angle-right"></span>Shop*@</nav>		</div>
+                            <div class="shop_content">
+                                
+                                    <!--------------------------------------------------------->
+                                    @RenderBody()
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!--.site-content-->
+                @Html.Action("Footer", "Home")
+                <div id="back-top" class="hidden-xs"><i class="fa fa-angle-up"></i></div>
+                @*@Html.Partial("_Socical")*@
+                </div>
+            <!--.main wrapper-->
+            @Scripts.Render("~/bundles/ScriptsFoot")
+
+</body>
+
+<!-- Mirrored from woocommerce.izzitemplates.com/bigshop/shop/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Jul 2016 11:03:42 GMT -->
+</html>

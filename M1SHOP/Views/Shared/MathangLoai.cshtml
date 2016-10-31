@@ -1,0 +1,140 @@
+﻿<div class="nav-menus">
+    <div class="container">
+        <div class="row">
+            <div class="menu-categories col-lg-3 col-sm-9 col-md-3 col-xs-8">
+                <div class="vertical-menu">
+                    <div class="title_menu">
+                        <h3 class="pull-left">Nhóm mặt hàng</h3>
+                        <span class="fa fa-bars pull-right"></span>
+                    </div>
+                    <div class="menucontent">
+
+                        <!-- begin "mega_main_menu" -->
+                        <div id="mega_main_menu_custom" class="categories primary_style-flat icons-left first-lvl-align-left first-lvl-separator-smooth direction-vertical fullwidth-disable pushing_content-disable mobile_minimized-enable dropdowns_trigger-hover dropdowns_animation-none no-logo no-search no-woo_cart no-buddypress responsive-enable coercive_styles-disable indefinite_location_mode-disable language_direction-ltr version-2-1-2 mega_main mega_main_menu">
+                            <div class="menu_holder">
+                                <div class="mmm_fullwidth_container"></div><!-- class="fullwidth_container" -->
+                                <div class="menu_inner">
+                                    <span class="nav_logo">
+                                        <a class="mobile_toggle">
+                                            <span class="mobile_button">
+                                                Menu &nbsp;
+                                                <span class="symbol_menu">&equiv;</span>
+                                                <span class="symbol_cross">&#x2573;</span>
+                                            </span><!-- class="mobile_button" -->
+                                        </a>
+                                    </span><!-- /class="nav_logo" -->
+                                    <ul id="mega_main_menu_ul_custom" class="mega_main_menu_ul">
+                                     
+                                        <li id="menu-item-718" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-718 default_dropdown default_style drop_to_right submenu_default_width columns1">
+                                            <a href="/san-pham-moi" class="item_link  with_icon" tabindex="22">
+                                                <i class="fa fa-diamond"></i>
+                                                <span class="link_content">
+                                                    <span class="link_text">
+                                                        Sản phẩm mới
+                                                        <span class="link_descr">
+                                                            <span class="pin yellow">New</span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        @foreach (var i in Model)
+                                        { 
+                                        <li id="menu-item-716" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-716 default_dropdown default_style drop_to_right submenu_default_width columns1">
+                                            <a href="/loai-mat-hang/@i.SeoTitle-@i.ID" class="item_link  with_icon" tabindex="46">
+                                                <i class="fa fa-th-list"></i>
+                                                <span class="link_content">
+                                                    <span class="link_text">
+                                                     @i.NameWEB
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        }
+                                        @*<li id="menu-item-719" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-719 default_dropdown default_style drop_to_right submenu_default_width columns1">
+                                            <a href="#" class="item_link  with_icon" tabindex="47">
+                                                <i class="im-icon-basket"></i>
+                                                <span class="link_content">
+                                                    <span class="link_text">
+                                                        Hot deals
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li id="menu-item-717" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-717 default_dropdown default_style drop_to_right submenu_default_width columns1">
+                                            <a href="#" class="item_link  with_icon" tabindex="48">
+                                                <i class="im-icon-cube"></i>
+                                                <span class="link_content">
+                                                    <span class="link_text">
+                                                        Accessories
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </li>*@
+                                    </ul>
+                                </div><!-- /class="menu_inner" -->
+                            </div><!-- /class="menu_holder" -->
+                        </div><!-- /id="mega_main_menu_custom" -->
+                    </div>
+                </div>
+            </div>
+            <div class="main-nav col-lg-9 col-sm-3 col-md-9 col-xs-3">
+                <div class="nav-desktop visible-lg visible-md">
+
+                    <!-- begin "mega_main_menu" -->
+                    <div id="mega_main_menu" class="primary primary_style-flat icons-left first-lvl-align-left first-lvl-separator-smooth direction-horizontal fullwidth-disable pushing_content-disable mobile_minimized-enable dropdowns_trigger-hover dropdowns_animation-anim_4 no-logo no-search no-woo_cart no-buddypress responsive-enable coercive_styles-disable indefinite_location_mode-disable language_direction-ltr version-2-1-2 mega_main mega_main_menu">
+                        <div class="menu_holder">
+                            <div class="mmm_fullwidth_container"></div><!-- class="fullwidth_container" -->
+                            <div class="menu_inner">
+                                <span class="nav_logo">
+                                    <a class="mobile_toggle">
+                                        <span class="mobile_button">
+                                            Menu &nbsp;
+                                            <span class="symbol_menu">&equiv;</span>
+                                            <span class="symbol_cross">&#x2573;</span>
+                                        </span><!-- class="mobile_button" -->
+                                    </a>
+                                </span><!-- /class="nav_logo" -->
+                                <ul id="mega_main_menu_ul" class="mega_main_menu_ul">
+                                    @foreach (var m in ViewBag.MenuChinh)
+                                    {
+                                    <li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671 default_dropdown default_style drop_to_right submenu_default_width columns1">
+                                        <a href="@m.Link" class="item_link  disable_icon" tabindex="107">
+                                            <i class=""></i>
+                                            <span class="link_content">
+                                                <span class="link_text">
+                                                    @m.Text
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    }
+
+
+                                </ul>
+                            </div><!-- /class="menu_inner" -->
+                        </div><!-- /class="menu_holder" -->
+                    </div><!-- /id="mega_main_menu" -->
+                </div>
+
+                <div class="nav-mobile visible-xs visible-sm">
+                    <div class="mobile-menu-overlay"></div>
+                    <div class="toggle-menu pull-right"><i class="fa fa-bars"></i></div>
+                    <div class="mobile-navigation">
+                        <div class="title-navigation">
+                            <label>Menu</label>
+                        </div>
+                        <div class="mobile-menu-container">
+                            <ul id="menu-main-menu" class="nav-menu mobile-menu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home">Trang chủ</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/ban-tin-cong-ty.thml">Bản tin công ty</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/co-dong.html">Quan hệ cổ đông</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/contact">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

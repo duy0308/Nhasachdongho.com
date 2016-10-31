@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutHeader.cshtml";
+}
+<form action="/Cart/Update" method="post">
+    <div id="archive-product" class="col-xs-12 col-md-12">
+        <div class="archive-border">
+            <div class="shop-products products row grid-view sidebar">
+                <!--------------------------------------------------------->
+                <div class="panel panel-success">
+                    <div class="panel-heading"> <h3 class="panel-title">Thông tin chi tiết giỏ hàng của bạn</h3> </div>
+                    <div class="panel-body">
+                        <table class="table table-hover table-responsive" style="width:100%">
+                            <tr>
+                                <th></th>
+                                <th>Tên mặt hàng</th>
+                                <th>Giá bán</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                                <th></th>
+                            </tr>
+                            @{
+                                int i = 1;
+                                foreach (var p in M1SHOP.Models.CartShopping.Cart.Items)
+                                {
+                                    <tr>
+                                        <td style="text-align:center">@i</td>
+                                        <td>@p.NameWEB</td>
+                                        <td style="text-align:center">@Html.FormatValue(p.Price, "{0:#,###}")</td>
+                                        <td style="text-align:center"><input type="number" value="@p.Quantity" name="@p.ID" size="3" min="1" max="100" /></td>
+                                        <td style="text-align:center">@Html.FormatValue((p.Price * p.Quantity * 1), "{0:#,###}")</td>
+                                        <td style="text-align:center">
+                                            <a href="#" class="remove-from-cart" data-id="@p.ID">
+                                                <span class="glyphicon glyphicon-trash" style="z-index:99999;"></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    i++;
+                                }
+                                <tr>
+                                    <td colspan="6" align="right" style="color:red; font-weight:bold; font-size:16px">Tổng cộng: @Html.FormatValue(@M1SHOP.Models.CartShopping.Cart.tongcong, "{0:#,###}") VNĐ </td>
+                                </tr>
+                            }
+                        </table>
+                        <div style="text-align:center;">
+                            <button class="btn btn-success"><span class="fa fa-level-up"></span> Cập nhật lại số lượng</button>
+                            @*<a class="btn btn-default" href="/Cart/Clear">Clear</a>*@
+                            <a class="btn btn-danger" href="/Order/Checkout"><span class="fa fa-shopping-cart"></span> Tiến hành đặt hàng</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+</form>
+
+<script>
+    $(function () {
+        $(".remove-from-cart").click(function () {
+            pid = $(this).attr("data-id");
+            $.ajax({
+                url: "/Cart/Remove",
+                data: { id: pid },
+                success: function (response) {
+                    $("#cart-count").html(response.Count + " items");
+                    $("#cart-amount").html("$ " + response.Amount);
+                }
+            });
+            $(this).parents("tr").hide(500);
+            return false;
+        });
+    });
+</script>

@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <meta property="og:url" content="@Request.Url.AbsoluteUri" />
+    <meta property="og:type" content="Product" />
+    <meta property="og:title" content="@ViewBag.Metatitle" />
+    <meta property="og:description" content="@ViewBag.Metadescription" />
+    <meta property="og:image" content="@ViewBag.Metaimage" />
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/ScriptsCore")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/bundles/csscore")
+    
+    @*<link rel='stylesheet' id='awesome-css-css' href='/wp-content/themes/bigshop/css/font-awesomecce7.css' type='text/css' media='all' />*@
+    <script>
+        //paste this code under the head tag or in a separate js file.
+        // Wait for window load
+        $(window).load(function() {
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <!-- Insert to your webpage before the </head> -->
+    @*<script src="/Content/sliderengine/amazingslider.js"></script>
+        <link rel="stylesheet" type="text/css" href="/Content/sliderengine/amazingslider-1.css">*@
+    @*<script src="/Content/sliderengine/initslider-1.js"></script>*@
+    <!-- End of head section HTML codes -->
+        <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
+    <!--[if IE 8]><link rel="stylesheet" type="text/css" href="/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
+    <link rel="icon" type="image/png" href="/wp-content/uploads/2016/03/favicon-1.png" />
+    <style type="text/css" title="dynamic-css" class="options-output">
+        body {
+            background-color: #F3F3F3;
+        }
+
+        body {
+            font-family: Roboto;
+            font-weight: 400;
+            font-style: normal;
+            color: #3C3F44;
+            font-size: 14px;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: opacity 0.24s ease-in-out;
+            -moz-transition: opacity 0.24s ease-in-out;
+            transition: opacity 0.24s ease-in-out;
+        }
+
+        .wf-loading body, {
+            opacity: 0;
+        }
+
+        .ie.wf-loading body, {
+            visibility: hidden;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            .wpb_animate_when_almost_visible {
+                opacity: 1;
+            }
+        </style>
+    </noscript>
+</head>
+
+
+<body class="home page page-id-34 page-template page-template-page-templates page-template-page-template page-template-page-templatespage-template-php mmm mega_main_menu-2-1-2 bigshop-animate-scroll wpb-js-composer js-comp-ver-4.12 vc_responsive">
+    <script>
+window.fbAsyncInit = function() {
+FB.init({
+    appId      : '530227913843175',
+    xfbml      : true,
+    version    : 'v2.7'
+});
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="se-pre-con"></div>
+
+    <div class="main-wrapper ">
+
+        <header>
+
+            <div class="header-container first">
+                @Html.Partial("_topbar")
+
+                <div class="header">
+                    <div class="container">
+                        <div class="row hidden-xs">
+                            @{Html.RenderAction("Logo", "Home");}
+                            <!--KHUNG TÌM KIẾM-->
+                            @{Html.RenderAction("MathangLoaiTK", "Home");}
+                            <!-- CART INFO -->
+                            @Html.Partial("_CartInfo")
+
+                            <!-- END CART INFO -->
+                        </div>
+                        <div class="mobile-top-cart row hidden-lg hidden-md hidden-sm">
+                            @{Html.RenderAction("LogoMobi", "Home");}
+                            <div class="cart-container col-xs-8 mg-20-0">
+                                <div class="shoping_cart pull-right">
+                                    <div class="widget woocommerce widget_shopping_cart"><div class="widget_shopping_cart_content"></div></div>
+                                </div>
+                            </div>
+                            <!--- SEARCH NGANG CHO MOBILE -->
+                            @{Html.RenderAction("MathangLoaiTKMobi", "Home");}
+                            <!---  END SEARCH NGANG CHO MOBILE -->
+                        </div>
+                    </div>
+                </div>
+                <!--MENU NGANG-->
+                @{Html.RenderAction("MathangLoai", "Home");}
+                <!-- END MENU NGANG-->
+                <div class="clearfix"></div>
+            </div>
+        </header>
+        <div id="content" class="site-content">
+            <div id="main-content" class="bigshop_home_template">
+                <!-- SLIDER -->
+                @{Html.RenderAction("Slider", "Home");}
+                <!-- / END SLIDER -->
+                <!-- GHI CHU DICH VỤ  -->
+                @Html.Partial("_Service")
+                <!-- END GHI CHU DICH VỤ  -->
+                <!-- ADS VITRI 1 -->
+                <div class="clearfix"></div>
+                @Html.Partial("_AdsVitri1")
+                <!-- / END ADS VITRI 1 -->
+                @RenderBody()
+
+                <!-- SHOW PRODUCT IN HOME -->
+                @*@Html.Partial("_SanphamHome")*@
+                <!-- /END SHOW PRODUCT IN HOME -->
+
+            </div>
+
+        </div>
+        <!--.site-content-->
+        @{Html.RenderAction("Footer", "Home");}
+        <div id="back-top" class="hidden-xs"><i class="fa fa-angle-up"></i></div>
+        @Html.Partial("_Socical")
+    </div><!--.main wrapper-->
+
+    <div class="popup-content" id="popup_onload">
+        <div class="overlay-bg-popup"></div>
+        <div class="popup-content-wrapper">
+            <a class="close-popup" href="javascript:void(0)"><i class="fa fa-times"></i></a>
+            <div class="popup-content-text">
+                <img class="aligncenter size-full wp-image-565" src="/wp-content/uploads/2016/04/popup_img-1.jpg" alt="popup_img" />
+            </div>
+            <div class="newletter-form">
+                <div class="widget_wysija_cont shortcode_wysija">
+                    <div id="msg-form-wysija-shortcode5789c05f4bfe0-1" class="wysija-msg ajax"></div>
+                    <form id="form-wysija-shortcode5789c05f4bfe0-1" method="post" action="#wysija" class="widget_wysija shortcode_wysija">
+                        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                        <p class="wysija-paragraph">
+
+
+                            <input type="text" name="wysija[user][email]" class="wysija-input validate[required,custom[email]]" title="Email" placeholder="Email" value="" />
+
+
+
+                            <span class="abs-req">
+                                <input type="text" name="wysija[user][abs][email]" class="wysija-input validated[abs][email]" value="" />
+                            </span>
+
+                        </p>
+                        <input class="wysija-submit wysija-submit-field" type="submit" value="Subscribe!" />
+                        <input type="hidden" name="form_id" value="1" />
+                        <input type="hidden" name="action" value="save" />
+                        <input type="hidden" name="controller" value="subscribers" />
+                        <input type="hidden" value="1" name="wysija-page" />
+
+                        <input type="hidden" name="wysija[user_list][list_ids]" value="1" />
+
+                    </form>
+                </div>
+            </div>
+            <label class="not-again"><input type="checkbox" value="1" name="not-again" /><span>Do not show this popup again</span></label>
+        </div>
+    </div>
+
+    @*<script type="text/javascript">
+                    jQuery(document).ready(function($){
+
+                        "use strict";
+
+                            if($('#popup_onload').length){
+                            $('#popup_onload').fadeIn(400);
+                        }
+                        $('#popup_onload .close-popup, #popup_onload .overlay-bg-popup').click(function(){
+                            var not_again = $(this).closest('#popup_onload').find('.not-again input[type="checkbox"]').prop('checked');
+                            if(not_again){
+                                var datetime = new Date();
+                                var exdays = 7;
+                                datetime.setTime(datetime.getTime() + (exdays*24*60*60*1000));
+                                document.cookie = 'no_again=1; expires=' + datetime.toUTCString();
+                            }
+                            $(this).closest('#popup_onload').fadeOut(400);
+                        });
+                    });
+        </script>*@
+
+    @Scripts.Render("~/bundles/ScriptsFoot")
+    <link rel='stylesheet' id='vc_tta_style-css' href='/wp-content/plugins/js_composer/assets/css/js_composer_tta.min0147.css' type='text/css' media='all' />
+
+
+
+</body>
+
+</html>

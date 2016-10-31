@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "MathangLoai";
+}
+
+<h2>THÔNG TIN ĐỒNG BỘ DỮ LIỆU </h2>
+<ul>
+    <li>Số Loại Mặt hàng đã thêm: @ViewBag.Soluong</li>
+</ul>
+
+
+
+@Html.DevExpress().Panel(settings =>
+{
+    settings.Name = "Panel";
+    settings.FixedPosition = DevExpress.Web.PanelFixedPosition.None;
+    settings.SettingsCollapsing.ExpandEffect = DevExpress.Web.PanelExpandEffect.Auto;
+}).GetHtml()

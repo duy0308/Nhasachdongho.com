@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Đăng nhập thành viên";
+    Layout = "~/Views/Shared/LayoutHeader.cshtml";
+}
+<style>
+    .box__header {
+        border-bottom: 1px solid #d2d2d2;
+        padding: 14px 20px;
+    }
+
+    .box__title {
+        display: inline-block;
+        margin: 0;
+        color: #000000;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 22px;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-info" style="width:500px;">
+                <div class="panel-heading"> <h3 class="panel-title text-center" style="font-weight:bold;font-size:16px;">ĐĂNG NHẬP THÀNH VIÊN</h3> </div>
+                <div class="panel-body">
+                    <!--------------------------------------------------------->
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                @Html.TextBox("username", null, new { @class = "form-control", placeholder = "Tên đăng nhập", id = "us", required = true })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                @Html.TextBox("Password", null, new { @class = "form-control", placeholder = "Mật khẩu", type = "password", required = true })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                @Html.CheckBox("Remember", new { value = "true" })
+                                Ghi nhớ đăng nhập ?
+                            </label>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 separator">
+                            <div class="col-xs-12 col-md-6"><button class="btn btn-success btn-block btn-lg">Đăng nhập</button></div>
+
+                            <div class="col-xs-12 col-md-6"><a href="/Account/Register" class="btn btn-primary btn-block btn-lg">Đăng ký thành viên</a></div>
+                            <div class="divider"></div>
+                            <hr />
+                            @*<div class="social" style="text-align:center; margin-top:50px">
+                                <a href="/Account/LoginFacebook"><img src="/Images/facebook.gif" width="200px" /></a> 
+                                <a href="/Account/LoginGoogle>"><img src="/Images/Google.gif" width="200px" /></a>
+                            </div>*@
+
+                        </div>
+                        <div class="divider"></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

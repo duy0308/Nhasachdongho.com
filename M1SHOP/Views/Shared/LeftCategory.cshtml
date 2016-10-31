@@ -1,0 +1,51 @@
+﻿@using Models.EF;
+<div class="col-md-3 sidebar-shop" id="secondary">
+    <h3 class="vc_widget_title">
+        <span>DANH MỤC SẢN PHẨM</span>
+    </h3>
+    <div class="sidebar-wrapper">
+        <aside id="woocommerce_product_categories-2" class="widget woocommerce widget_product_categories">
+            @*<h3 class="widget-title"><span>Categories</span></h3>*@
+            <ul class="product-categories">
+
+@foreach (M1ProductCategory i in Model)
+{
+    DataContextModel db = new DataContextModel();
+    int id = int.Parse(i.ID.ToString());
+    var sub = db.M1ProductCategory.Where(l => l.ParentID == id).ToList();
+    <li class="cat-item cat-item-19 cat-parent">
+        <a href="/loai-mat-hang/@i.SeoTitle-@id">@i.NameWEB</a> @*<span class="count">(6)</span>*@
+        <ul class='children'>
+        @foreach (var c in sub)
+        {
+            int idL = int.Parse(c.ID.ToString());
+            var sanpham = db.M1ProductCategory.Where(p => p.ID == idL).ToList();
+            int soluong = sanpham.Count;
+            <li class="cat-item cat-item-20"><a href="/loai-mat-hang/@c.SeoTitle-@c.ID">@c.NameWEB</a> <span class="count">(@soluong)</span></li>
+        }
+        </ul>
+    </li>
+}
+                
+                
+            </ul>
+        </aside>
+        <!--<aside id="woocommerce_price_filter-2" class="widget woocommerce widget_price_filter"><h3 class="widget-title"><span>Price</span></h3><form method="get" action="http://woocommerce.izzitemplates.com/bigshop/shop/">
+                    <div class="price_slider_wrapper">
+                        <div class="price_slider" style="display:none;"></div>
+                        <div class="price_slider_amount">
+                            <input type="text" id="min_price" name="min_price" value="" data-min="80" placeholder="Min price" />
+                            <input type="text" id="max_price" name="max_price" value="" data-max="1350" placeholder="Max price" />
+                            <button type="submit" class="button">Filter</button>
+                            <div class="price_label" style="display:none;">
+                                Price: <span class="from"></span> &mdash; <span class="to"></span>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </form>
+        </aside>-->
+    </div>
+    @*<aside id="widget_sp_image-3" class="widget-ads widget_sp_image"><a href="#" id="" target="_self" class="widget_sp_image-image-link" title="" rel=""><img width="270" height="407" alt="" class="attachment-full" style="max-width: 100%;" src="/wp-content/uploads/2016/03/banner-12-1-1.jpg" /></a></aside><aside id="widget_sp_image-4" class="widget-ads widget_sp_image"><a href="#" id="" target="_self" class="widget_sp_image-image-link" title="" rel=""><img width="270" height="407" alt="" class="attachment-full" style="max-width: 100%;" src="/wp-content/uploads/2016/03/banner-16-1.jpg" /></a></aside>*@
+</div>

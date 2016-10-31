@@ -1,0 +1,108 @@
+﻿@model  Models.EF.M1Footer
+    <style>
+        #site-footer{
+            height: 350px!important;
+            margin-top:20px;
+            margin-bottom: 0px !important;
+            padding: 0px !important;
+        }
+        .footer{
+            margin-top:20px;
+            min-height:0;
+            height: 350px!important;
+        }
+        .footer-top{
+            margin-top:20px;
+            min-height: 0!important;
+            margin-bottom: 0px!important;
+            padding:0px!important;
+        }
+        .footer-position {
+            min-height: 0 !important;
+            margin-bottom: 0px !important;
+            padding: 0px !important;
+        }
+    </style>
+<footer id="site-footer">
+    <div class="footer">
+        <div class="footer-top hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-position equal-h col-lg-6 col-sm-12 col-md-6 col-xs-12">
+
+                        <div class="footer-block">
+
+                            <h3 class="footer-widget-title">
+                                <span>Thông tin liên hệ</span>
+                            </h3>
+                            <div class="widget-contact">
+                                <ul>
+                                   
+                                        <li>@Html.Raw(Model.Detail)</li>                               
+                                    
+                                    
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="footer-position equal-h col-lg-3 col-sm-6 col-md-3 col-xs-12">
+                       
+                   
+                        <div class="footer-block">
+                            <div class="widget woocommerce widget_product_tag_cloud">
+                                <h3 class="footer-widget-title"><span>Tags</span></h3><div class="tagcloud">
+                                    <a href='#' class='tag-link-10 tag-link-position-1' title='1 product' style='font-size: 8pt;'>Apple</a>
+                                    <a href='#' class='tag-link-11 tag-link-position-2' title='3 products' style='font-size: 16.75pt;'>Canon</a>
+                                    <a href='#' class='tag-link-12 tag-link-position-3' title='4 products' style='font-size: 19.6666666667pt;'>D &amp; G</a>
+                                    <a href='#' class='tag-link-13 tag-link-position-4' title='2 products' style='font-size: 13.25pt;'>HTC</a>
+                                    <a href='#' class='tag-link-14 tag-link-position-5' title='4 products' style='font-size: 19.6666666667pt;'>Panasonic</a>
+                                    <a href='#' class='tag-link-15 tag-link-position-6' title='1 product' style='font-size: 8pt;'>Samsung</a>
+                                    <a href='#' class='tag-link-17 tag-link-position-7' title='5 products' style='font-size: 22pt;'>Sony</a>
+                                </div>
+                            </div>
+                        </div>
+                      
+                            
+                    </div>
+                    <div class="footer-position equal-h col-lg-3 col-sm-6 col-md-3 col-xs-12">
+                        <div class="bigshop-post-widget">
+                            <div class="widget widget_bigshop_recent_post">
+                                <h3 class="footer-widget-title"><span>Kết nối</span></h3><ul>
+                                    <li>
+                                        <!--------FAN PAGE--------------------->
+                                        <div class="fb-page" data-href="https://www.facebook.com/Nhasachdongho-1027490040676700" data-tabs="timeline" data-width="245" data-height="200" data-small-header="true" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Nhasachdongho-1027490040676700" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Nhasachdongho-1027490040676700">Nhasachdongho</a></blockquote></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                        <div class="widget-copyright">
+                            Copyright © 2016 CÔNG TY CỔ PHẦN SÁCH THIẾT BỊ TRƯỜNG HỌC KIÊN GIANG. By Mr.One
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                        <div class="widget-payment text-right">
+                            <img src="/wp-content/uploads/2016/04/logo_paiement_visa-1.jpg" alt="logo_paiement_visa" />
+                            <img src="/wp-content/uploads/2016/04/logo_paiement_paypal-1.jpg" alt="logo_paiement_paypal" />
+                            <img src="/wp-content/uploads/2016/04/logo_paiement_mastercard-1.jpg" alt="logo_paiement_mastercard" />
+                            <img src="/wp-content/uploads/2016/04/logo_paiement_discover-1.jpg" alt="logo_paiement_discover" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+

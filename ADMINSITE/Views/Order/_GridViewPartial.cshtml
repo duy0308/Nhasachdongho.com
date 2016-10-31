@@ -1,0 +1,43 @@
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "Order", Action = "GridViewPartial" };
+
+        //		settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Order", Action = "GridViewPartialAddNew" };
+        //      settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Order", Action = "GridViewPartialUpdate" };
+        //      settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Order", Action = "GridViewPartialDelete" };
+        //      settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        //      settings.SettingsBehavior.ConfirmDelete = true;
+
+        //settings.CommandColumn.Visible = true;
+        //      settings.CommandColumn.ShowNewButton = true;
+        //      settings.CommandColumn.ShowDeleteButton = true;
+        //      settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "ID";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.Columns.Add("ID");
+        settings.Columns.Add("UserName");
+        settings.Columns.Add("Name");
+        settings.Columns.Add("Photo");
+        settings.Columns.Add("Address");
+        settings.Columns.Add("Email");
+        settings.Columns.Add("Phone");
+        settings.Columns.Add("Status", MVCxGridViewColumnType.CheckBox);
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

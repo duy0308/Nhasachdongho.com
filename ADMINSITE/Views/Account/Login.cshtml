@@ -1,0 +1,103 @@
+﻿@model Models.EF.M1Masters
+@{
+    ViewBag.Title = "Đăng nhập thành viên";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QUẢN TRỊ WEBSITE</title>
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom Theme Style -->
+    <link href="/Content/adminlayout/css/custom.css" rel="stylesheet">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script type="text/javascript">
+          var onloadCallback = function() {
+            grecaptcha.render('html_element', {
+                'hl': 'vi'
+            });
+          };
+    </script>
+    <style>
+        .box__header {
+            border-bottom: 1px solid #d2d2d2;
+            padding: 14px 20px;
+        }
+
+        .box__title {
+            display: inline-block;
+            margin: 0;
+            color: #000000;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 22px;
+        }
+    </style>
+
+</head>
+<body style="background:#F7F7F7">
+
+    <div class="container" style="margin-top:50px">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-info" style="width:480px;">
+                    <div class="panel-heading"> <h3 class="panel-title text-center" style="font-weight:bold;font-size:16px;">ĐĂNG NHẬP TRANG QUẢN TRỊ</h3> </div>
+                    <div class="panel-body">
+                        <!--------------------------------------------------------->
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="bs-example bs-example-bg-classes" data-example-id="contextual-backgrounds-helpers">
+                                <p class="bg-danger">
+                                    @Html.ValidationSummary()
+                                    @Html.ValidationMessage("CustomError", new { @class = "text-danger", Styles = "Size:16px" })
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    @Html.TextBox("uUserName", null, new { @class = "form-control", placeholder = "Tên đăng nhập", id = "us", required = true })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                    @Html.TextBox("uPassword", null, new { @class = "form-control", placeholder = "Mật khẩu", type = "password", required = true })
+                                </div>
+                            </div>
+                            <div style="text-align:center">
+                                <div class="g-recaptcha" style="margin-left:50px" data-sitekey="6LenOScTAAAAANUAPS6XjBtBOWOXZSnsti4g6GyI"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:20px; text-align:center">
+                                <button class="btn btn-success btn-block btn-lg">Đăng nhập</button>
+                            </div>
+                        }
+                        <div class="form-group" style="text-align:center;">
+                            <div style="text-align:center; margin-top:50px">
+
+                                <div class="divider"></div>
+                                <br /><br />
+                                CÔNG TY CỔ PHẦN SÁCH THIẾT BỊ TRƯỜNG HỌC KIÊN GIANG<br />
+                                Lô E16, số 30,31,32 đường 3/2, Vĩnh Lạc, Rạch Giá, Kiên Giang<br />
+                                Phone: +84 (77) 386-2125 Fax: +84 (77) 386-7517<br />
+                                E-mail: vanphong.kbe@gmail.com<br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

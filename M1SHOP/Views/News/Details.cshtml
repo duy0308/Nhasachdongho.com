@@ -1,0 +1,14 @@
+﻿@model Models.EF.M1Content
+@{
+    ViewBag.Title = "SingNews";
+    Layout = "~/Views/Shared/_ProductList.cshtml";
+}
+
+<div id="archive-product" class="col-xs-12 col-md-9">
+    <div class="archive-border">
+        <!----------------------------------------->
+        <h2>@Model.Name</h2>
+        @Html.Raw(Model.Detail)
+        <!----------------------------------------->
+    </div>
+</div>

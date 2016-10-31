@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Models.EF.M1ContentCategory>
+@using Models.EF;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+    
+}
+<div class="col-md-12">
+    <h3>Quản lý các nhóm bài viết</h3>
+    <p class="pull-right">
+        <a href="/M1ContentCategory/Create" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Thêm mới</a>
+    </p>
+    <table class="table">
+        <tr>
+            @*<th>
+                Tên nhóm bài viết
+            </th>*@
+            <th>
+               Nhóm bài viết
+            </th>
+            <th>
+                Thứ tự hiển thị
+            </th>
+          
+            <th>
+                Hiển thị trên web
+            </th>
+            <th>
+                Hiển thị trang chủ
+            </th>
+         
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>*@
+               <!------------------------>
+                @{
+                    DataContextModel db = new DataContextModel();
+                    if (item.ParentID <= 0 )
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                    }
+                    else
+                    {
+                        var nhom = db.M1ContentCategory.Single(x => x.ID == item.ParentID);
+                        <td>
+                            @nhom.Name  >> <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                        </td>
+                    }
+                }
+                <!------------------------>
+               
+                <td>
+                    
+                    @Html.DisplayFor(modelItem => item.DisplayOrder)
+                </td>
+
+                <td>
+                    @if (item.Status == null)
+                    {
+                        item.Status = false;
+                    }
+                    @Html.CheckBoxFor(modelItem => item.Status, new { @class = "dxWeb_edtCheckBoxChecked_Material dxICheckBox_Material dxichSys dxRippleTarget dxExternalRippleTarget", disabled = "disabled" } )
+                </td>
+                <td>
+                    @if (item.ShowOnHome == null)
+                    {
+                        item.ShowOnHome = false;
+                    }
+                    @Html.CheckBoxFor(modelItem => item.ShowOnHome, new {@class = "dxWeb_edtCheckBoxChecked_Material dxICheckBox_Material dxichSys dxRippleTarget dxExternalRippleTarget", disabled = "disabled" })
+                </td>
+               
+                <td>
+                    <a href="/M1ContentCategory/Edit/@item.ID" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> Sửa</a>
+
+                    <a href="/M1ContentCategory/Delete/@item.ID" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
+
+                </td>
+            </tr>
+                    }
+
+    </table>
+</div>

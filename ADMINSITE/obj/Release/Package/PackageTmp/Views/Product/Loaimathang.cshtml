@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Models.EF.M1ProductCategory>
+@using Models.EF
+@{
+    DataContextModel db = new DataContextModel();
+    ViewBag.Title = "Loaimathang";
+}
+<style>
+    ul.tree, ul.tree ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        ul.tree ul {
+            margin-left: 10px;
+            background: url(/Content/images/images/vline.png) repeat-y;
+        }
+
+        ul.tree li {
+            margin: 0;
+            padding: 0 12px;
+            font-size: 14px;
+            line-height: 20px;
+            color: #369;
+            font-weight: bold;
+        }
+
+        ul.tree ul li {
+            background: url(/Content/images/node.png) no-repeat;
+        }
+
+            ul.tree ul li.last,
+            ul.tree ul li:last-child {
+                background: #fff url(/Content/images/lastnode.png) no-repeat;
+        }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>QUẢN LÝ CÁC LOẠI MẶT HÀNG@*<small>Activity shares</small>*@</h2>
+                   
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="row" style="border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;">
+                        <!--------------------------------------------------------------------------------------------->
+
+                        <ul class="tree">
+                            @foreach (var m1 in Model)
+                            {
+                                //Level 1
+                                <li>
+                                    <i class="glyphicon glyphicon-triangle-right"></i>
+                                    <a href="/Product/MathangloaiEdit/@m1.ID">@m1.NameWEB</a>
+                                    <ul>
+                                        @{
+
+                                            //Khai báo để tải loại mặt hàng Lv2
+                                            var idLv1 = m1.ID;
+                                            //Level2
+                                            var LoaiSPLv2 = db.M1ProductCategory.Where(m => m.ParentID == idLv1 && m.Status == true).OrderBy(m => m.DisplayOrder).ToList();
+                                            foreach (var m2 in LoaiSPLv2)
+                                            {
+                                                <li>
+                                                    <a href="/Product/MathangloaiEdit/@m2.ID">@m2.NameWEB</a>
+                                                    <ul>
+                                                        @{
+                                                            //Khai báo để tải loại mặt hàng Lv3
+                                                            var idLv2 = m2.ID;
+                                                            //Level3
+                                                            var LoaiSPLv3 = db.M1ProductCategory.Where(m => m.ParentID == idLv2 && m.Status == true).OrderBy(m => m.DisplayOrder).ToList();
+                                                            foreach (var m3 in LoaiSPLv3)
+                                                            {
+                                                                <li>
+                                                                    <a href="/Product/MathangloaiEdit/@m3.ID">@m3.NameWEB</a>
+                                                                    <ul>
+                                                                        @{
+                                                                            //Khai báo để tải loại mặt hàng Lv4
+                                                                            var idLv3 = m3.ID;
+                                                                            //Level4
+                                                                            var LoaiSPLv4 = db.M1ProductCategory.Where(m => m.ParentID == idLv3 && m.Status == true).OrderBy(m => m.DisplayOrder).ToList();
+                                                                            foreach (var m4 in LoaiSPLv4)
+                                                                            {
+                                                                                <li><a href="/Product/MathangloaiEdit/@m4.ID">@m4.NameWEB</a></li>
+                                                                            }
+                                                                            @*<li>
+                                                                                    List item 4.1.1.2
+                                                                                    <ul>
+                                                                                        <li>List item 4.1.1.2.1</li>
+                                                                                        <li>List item 4.1.1.2.2</li>
+                                                                                    </ul>
+                                                                                </li>*@
+                                                                        }
+
+                                                                    </ul>
+                                                                </li>
+                                                                            }
+                                                        }
+                                                    </ul>
+                                                </li>
+                                                                            }
+                                        }
+                                    </ul>
+                                </li>
+
+                                                                            }
+
+
+                            <!--------------------------------------------------------------------------------------------->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+       

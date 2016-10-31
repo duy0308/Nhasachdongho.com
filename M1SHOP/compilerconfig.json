@@ -1,0 +1,26 @@
+﻿[
+  {
+    "outputFile": "wp-content/plugins/contact-form-7/includes/js/jquery.form.mind03d.es5.js",
+    "inputFile": "wp-content/plugins/contact-form-7/includes/js/jquery.form.mind03d.js"
+  },
+  {
+    "outputFile": "wp-content/plugins/contact-form-7/includes/js/scriptsc1f9.es5.js",
+    "inputFile": "wp-content/plugins/contact-form-7/includes/js/scriptsc1f9.js"
+  },
+  {
+    "outputFile": "wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart0147.es5.js",
+    "inputFile": "wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart0147.js"
+  },
+  {
+    "outputFile": "wp-content/plugins/js_composer/assets/lib/vc_tabs/vc-tabs.min0147.es5.js",
+    "inputFile": "wp-content/plugins/js_composer/assets/lib/vc_tabs/vc-tabs.min0147.js"
+  },
+  {
+    "outputFile": "wp-content/plugins/mega_main_menu/src/js/frontend62d0.es5.js",
+    "inputFile": "wp-content/plugins/mega_main_menu/src/js/frontend62d0.js"
+  },
+  {
+    "outputFile": "wp-content/plugins/yith-woocommerce-zoom-magnifier/assets/js/frontend.min5fb2.es5.js",
+    "inputFile": "wp-content/plugins/yith-woocommerce-zoom-magnifier/assets/js/frontend.min5fb2.js"
+  }
+]

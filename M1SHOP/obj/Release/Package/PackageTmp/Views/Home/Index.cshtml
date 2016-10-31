@@ -1,0 +1,313 @@
+﻿@model IEnumerable<Models.EF.M1Product>
+@using System.Data.SqlClient;
+@using Models.EF
+@{
+    ViewBag.Title = "Công ty Cổ phần sách thiết bị trường học Kiên Giang";
+}
+<style>
+    .product {
+        height: 410px !important;
+    }
+</style>
+
+
+@*************SẢN PHẨM MỚI**************************@
+<div class="section-element">
+    <div class="container">
+        <div class="row">
+            <div class="wpb_column column_container col-sm-12">
+                <div class="vc_column-inner ">
+                    <div class="wpb_wrapper">
+                        <div class="vc_tta-container" data-vc-action="collapse">
+                            <div class="vc_general vc_tta vc_tta-tabs vc_tta-color-grey vc_tta-style-classic vc_tta-shape-rounded vc_tta-spacing-1 audio vc_tta-tabs-position-top vc_tta-controls-align-left audio">
+                                <div class="vc_tta-tabs-container">
+                                    <ul class="vc_tta-tabs-list">
+                                        <li class="vc_tta-tab">
+                                            <a href="/san-pham-moi.html">
+                                                <i class="vc_tta-icon fa fa-star"></i><span class="vc_tta-title-text">Sản phẩm mới</span>
+                                            </a>
+                                        </li>
+                                        <li class="vc_tta-tab" data-vc-tab><a href="/san-pham-moi" data-vc-tabs data-vc-container=".vc_tta"><span class="vc_tta-title-text">Xem thêm sản phẩm khác</span></a></li>
+                                        @* <li class="vc_tta-tab" data-vc-tab><a href="#1458895248435-cf6c7025-6ca1" data-vc-tabs data-vc-container=".vc_tta"><span class="vc_tta-title-text">Rings</span></a></li>*@
+                                    </ul>
+                                </div>
+                                <div class="extra-content-tabs-top"><img src="/wp-content/uploads/2016/03/banner-7-1.jpg" alt="" /></div>
+                                <div class="vc_tta-panels-container">
+                                    <div class="vc_tta-panels">
+                                        <!--HIỂN THỊ SẢN PHẨM THEO NHÓM ------TAB 1-->
+                                        <div class="vc_tta-panel vc_active" id="1458895247649-3e70009d-3a9e" data-vc-content=".vc_tta-panel-body">
+                                            <div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title"><a href="#1458895247649-3e70009d-3a9e" data-vc-accordion data-vc-container=".vc_tta-container"><i class="vc_tta-icon fa fa-diamond"></i><span class="vc_tta-title-text">Sản phẩm mới</span></a></h4></div><div class="vc_tta-panel-body">
+                                                <div class="woocommerce ">
+                                                    <div class="inner-content">
+                                                        <div class="products-block shop-products products grid-view">
+                                                            <div data-owl="slide" data-desksmall="4" data-tabletsmall="2" data-mobile="1" data-tablet="3" data-margin="0" data-item-slide="5" data-ow-rtl="false" class="owl-carousel owl-theme products-slide">
+                                                                <!--HIỂN THỊ 1 SẢN PHẨM-->
+                                                                @foreach (var mh in ViewBag.MathangMoi)
+                                                                {
+                                                                    //var urlMathangMoi = xulychuoi.xoadau(mh.NameWEB) + ".html";
+                                                                    <div class="product wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="100ms">
+                                                                        <div class="product-wrapper">
+                                                                            <div class="list-col4">
+                                                                                <div class="product-image">
+
+                                                                                    <a href="/san-pham/@mh.SeoTitle-@mh.ID" title="@mh.NameWEB">
+                                                                                        <img width="270" height="260" src="@mh.Image" class="primary_image wp-post-image" alt="105" sizes="(max-width: 270px) 100vw, 270px" />
+                                                                                        <img width="270" height="260" src="@mh.Image" class="secondary_image" alt="102" sizes="(max-width: 270px) 100vw, 270px" /><span class="shadow"></span>
+                                                                                    </a>
+                                                                                    <div class="quickviewbtn hidden-xs">
+                                                                                        <a class="detail-link" href="/san-pham/@mh.SeoTitle-@mh.ID" title="@mh.NameWEB"><i class="fa fa-external-link"></i></a>
+                                                                                    </div>
+
+                                                                                    <div class="products-info">
+                                                                                        <h2 class="product-name">
+                                                                                            <a href="/san-pham/@mh.SeoTitle-@mh.ID">@mh.NameWEB</a>
+                                                                                        </h2>
+                                                                                        <div class="ratings"><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i></div>
+                                                                                        <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(mh.Price, "{0:#,###}")<span class="woocommerce-Price-currencySymbol">VNĐ</span></span></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="list-col8">
+                                                                                <div class="gridview">
+                                                                                    <div class="product-info">
+                                                                                        <h2 class="product-name">
+                                                                                            <a href="/san-pham/@mh.SeoTitle-@mh.ID">@mh.NameWEB</a>
+                                                                                        </h2>
+                                                                                        <div class="ratings"><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i></div>
+                                                                                        <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(mh.Price, "{0:#,###}") <span class="woocommerce-Price-currencySymbol">VNĐ</span> </span></div>
+                                                                                    </div>
+                                                                                    <div class="actions">
+                                                                                        <ul class="add-to-links clearfix">
+                                                                                            <li>
+                                                                                                <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
+                                                                                                    <span class="woocommerce-Price-amount amount">@Html.FormatValue(mh.Price, "{0:#,###}")<span class="woocommerce-Price-currencySymbol">đ</span></span>
+                                                                                                    <a rel="nofollow" href="/Cart/AddSL/@mh.ID" data-id="@mh.ID" class="button product_type_simple add-to-cart">Thêm vào giỏ hàng</a>
+                                                                                                    @*<img class="add-to-cart" id="add-to-cart" data-id="@mh.ID" src="~/Image/icons/Add to basket.png" title="Chọn mua" />*@
+                                                                                                </p>
+                                                                                            </li>
+                                                                                            <li>
+
+                                                                                                <div class="yith-wcwl-add-to-wishlist add-to-wishlist-193">
+                                                                                                    <div class="yith-wcwl-add-button show" style="display:block">
+
+                                                                                                        <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                                                            Đánh dấu thích
+                                                                                                        </a>
+
+                                                                                                    </div>
+                                                                                                    @*<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+                                                                                                            <span class="feedback">Thêm sản phẩm!</span>
+                                                                                                            <a href="#" rel="nofollow">
+                                                                                                                Xem danh sách yêu thích
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                        <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+                                                                                                            <span class="feedback">Sản phẩm này đã có trong danh sách yêu thích!</span>
+                                                                                                            <a href="#" rel="nofollow">
+                                                                                                                Xem danh sách yêu thích
+                                                                                                            </a>
+                                                                                                        </div>*@
+                                                                                                    <div style="clear:both"></div>
+                                                                                                    <div class="yith-wcwl-wishlistaddresponse"></div>
+
+                                                                                                </div>
+                                                                                                <div class="clear"></div>
+                                                                                            </li>
+                                                                                            @*<li>
+                                                                                                    <div class="woocommerce product compare-button"><a href="index70ed.html?action=yith-woocompare-add-product&amp;id=193" class="compare button" data-product_id="193" rel="nofollow">Compare</a></div>
+                                                                                                </li>*@
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                }
+                                                                <!--HIỂN THỊ 1 SẢN PHẨM-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@****************************************************************************************************************@
+@using Models.DAO;
+@{
+    var GetSanpham = new ProductGetDAO();
+}
+@foreach (Models.EF.M1ProductCategory loai in ViewBag.Loaimathang)
+{
+
+    DataContextModel db = new DataContextModel();
+    int LoaiPa = int.Parse(loai.ID.ToString());
+    //var clientIdParameter = new SqlParameter("@id", LoaiPa);
+    //var sanpham = db.Database.SqlQuery<M1Product>("sp_GetAllMatHangbyMHLDefault @id",
+    //new SqlParameter("@id", LoaiPa)).ToList();
+    var sanpham = GetSanpham.GetByGroupID(LoaiPa);
+
+    <div class="section-element">
+        <div class="container">
+            <div class="row">
+                <div class="wpb_column column_container col-sm-12">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper">
+                            <div class="vc_tta-container" data-vc-action="collapse">
+                                <div class="vc_general vc_tta vc_tta-tabs vc_tta-color-grey vc_tta-style-classic vc_tta-shape-rounded vc_tta-spacing-1 jewelry vc_tta-tabs-position-top vc_tta-controls-align-left jewelry">
+                                    <div class="vc_tta-tabs-container">
+                                        <ul class="vc_tta-tabs-list">
+                                            <li class="vc_tta-tab">
+                                                <a href="/loai-mat-hang/@loai.SeoTitle-@loai.ID">
+                                                    <i class="vc_tta-icon fa fa-th-list"></i><span class="vc_tta-title-text">@loai.NameWEB</span>
+                                                </a>
+                                            </li>
+                                            @{
+                                                var Loaicon = db.M1ProductCategory.Where(m => m.ParentID == LoaiPa && m.Status == true && m.ShowOnHome == true).Take(4).ToList();
+                                                foreach (var g in Loaicon)
+                                                {
+                                                    //var ten = xulychuoi.xoadau(g.TenWeb) + ".html";
+                                                    <li class="vc_tta-tab"><a href="/loai-mat-hang/@loai.SeoTitle-@loai.ID"><span class="vc_tta-title-text">@g.NameWEB</span></a></li>
+                                                }
+                                            }
+                                            @*@{
+                                                var tenMain = @xulychuoi.xoadau(loai.TenWeb);
+                                            }*@
+                                            <li class="vc_tta-tab"><a href="/loai-mat-hang/@loai.SeoTitle-@loai.ID"><span class="vc_tta-title-text">Xem tất cả</span></a></li>
+                                        </ul>
+                                    </div>
+                                    <!--BANNER-->
+                                    @*<div class="extra-content-tabs-top"><img src="/wp-content/uploads/2016/03/banner-7-1.jpg" alt="" /></div>*@
+
+                                    <div class="vc_tta-panels-container">
+                                        <div class="vc_tta-panels">
+                                            <!--HIỂN THỊ SẢN PHẨM THEO NHÓM ------TAB 1-->
+                                            <div class="vc_tta-panel vc_active" id="@loai.ID" data-vc-content=".vc_tta-panel-body">
+                                                <div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title"><a href="#" data-vc-accordion data-vc-container=".vc_tta-container"><i class="vc_tta-icon fa fa-diamond"></i><span class="vc_tta-title-text">Jewelry</span></a></h4></div><div class="vc_tta-panel-body">
+                                                    <div class="woocommerce ">
+                                                        <div class="inner-content">
+                                                            <div class="products-block shop-products products grid-view style=" height:50px"">
+                                                                <div data-owl="slide" data-desksmall="4" data-tabletsmall="2" data-mobile="1" data-tablet="3" data-margin="0" data-item-slide="5" data-ow-rtl="false" class="owl-carousel owl-theme products-slide">
+
+                                                                    <!--HIỂN THỊ 1 SẢN PHẨM-->
+
+                                                                    @foreach (var p in sanpham)
+                                                                    {
+
+                                                                        //var urlMathang = xulychuoi.xoadau(p.NameWEB) + ".html";
+
+                                                                        <div class="product wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="100ms">
+                                                                            <div class="product-wrapper">
+                                                                                <div class="list-col4">
+                                                                                    <div class="product-image">
+
+                                                                                        <a href="/san-pham/@p.SeoTitle-@p.ID" title="@p.NameWEB">
+                                                                                            <img width="270" height="200px" src="@p.Image" class="primary_image wp-post-image" alt="105" sizes="(max-width: 270px) 100vw, 270px" />
+                                                                                            <img width="270" height="200px" src="@p.Image" class="secondary_image" alt="102" sizes="(max-width: 270px) 100vw, 270px" /><span class="shadow"></span>
+                                                                                        </a>
+
+                                                                                        <div class="quickviewbtn hidden-xs">
+                                                                                            <a class="detail-link" href="/san-pham/@p.SeoTitle-@p.ID" title="@p.NameWEB"><i class="fa fa-external-link"></i></a>
+                                                                                        </div>
+
+                                                                                        <div class="products-info">
+                                                                                            <h2 class="product-name">
+                                                                                                <a href="/san-pham/@p.SeoTitle-@p.ID">@p.NameWEB</a>
+                                                                                            </h2>
+                                                                                            <div class="ratings"><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i></div>
+                                                                                            <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}");VNĐ</span></div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="list-col8">
+                                                                                    <div class="gridview">
+                                                                                        <div class="product-info">
+                                                                                            <h2 class="product-name">
+                                                                                                <a href="/san-pham/@p.SeoTitle-@p.ID">@p.NameWEB</a>
+                                                                                            </h2>
+                                                                                            <div class="ratings"><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i></div>
+                                                                                            <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}") <span class="woocommerce-Price-currencySymbol">đ</span> </span></div>
+                                                                                        </div>
+                                                                                        <div class="actions">
+                                                                                            <ul class="add-to-links clearfix">
+                                                                                                <li>
+                                                                                                    <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
+                                                                                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>1,350.00</span>
+                                                                                                        <a rel="nofollow" href="/Cart/AddSL/@p.ID" data-quantity="1" data-product_id="241" data-product_sku="demo_41" class="button product_type_simple add_to_cart_button add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</a>
+                                                                                                    </p>
+                                                                                                </li>
+                                                                                                <li>
+
+                                                                                                    <div class="yith-wcwl-add-to-wishlist add-to-wishlist-193">
+                                                                                                        <div class="yith-wcwl-add-button show" style="display:block">
+
+                                                                                                            <a href="#" rel="nofollow" data-product-id="193" data-product-type="simple" class="add_to_wishlist">
+                                                                                                                Đánh dấu thích
+                                                                                                            </a>
+
+                                                                                                        </div>
+                                                                                                        <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+                                                                                                            <span class="feedback">Thêm sản phẩm!</span>
+                                                                                                            <a href="#" rel="nofollow">
+                                                                                                                Xem danh sách yêu thích
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                        <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+                                                                                                            <span class="feedback">Sản phẩm này đã có trong danh sách yêu thích!</span>
+                                                                                                            <a href="#" rel="nofollow">
+                                                                                                                Xem danh sách yêu thích
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                        <div style="clear:both"></div>
+                                                                                                        <div class="yith-wcwl-wishlistaddresponse"></div>
+
+                                                                                                    </div>
+                                                                                                    <div class="clear"></div>
+                                                                                                </li>
+                                                                                                @*<li>
+                                                                                                        <div class="woocommerce product compare-button"><a href="index70ed.html?action=yith-woocompare-add-product&amp;id=193" class="compare button" data-product_id="193" rel="nofollow">Compare</a></div>
+                                                                                                    </li>*@
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                    <!--HIỂN THỊ 1 SẢN PHẨM-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                }
+<style>
+    .owl-stage-outer {
+        height: 350px;
+    }
+
+    .product-image {
+        height: 200px;
+    }
+</style>

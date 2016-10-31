@@ -1,0 +1,311 @@
+﻿@model Models.EF.M1Product
+@using Models.DAO
+@using Models.EF
+    @{
+        ViewBag.Title = Model.NameWEB;
+        ViewBag.Metatitle = Model.MetaTitle;
+        ViewBag.Metadescription = Model.MetaDescriptions;
+        ViewBag.Metaimage = Request.Url.Host + "" + Model.Image;
+        Layout = "~/Views/Shared/LayoutProduct.cshtml";
+    }
+    <style>
+        .wp-post-image {
+            width: 400px !important;
+        }
+
+        .size-shop_thumbnail {
+            width: 90px !important;
+        }
+    </style>
+<div id="content" class="site-content">
+            <div class="container">
+                <div id="container">
+                    <div id="content" role="main">
+                        <nav class="woocommerce-breadcrumb" itemprop="breadcrumb"><a href="/"><i class="fa fa-home"></i>Trang chủ</a><span class="divider fa fa-angle-right"></span><a href="/loai-mat-hang/@Model.M1ProductCategory.SeoTitle-@Model.ID">@Model.M1ProductCategory.NameWEB</a><span class="divider fa fa-angle-right"></span>@Model.NameWEB</nav>
+                        <div itemscope itemtype="http://schema.org/Product" id="product-303" class="post-303 product type-product status-publish has-post-thumbnail product_cat-cameras-photos product_cat-canon product_cat-lends first instock shipping-taxable product-type-grouped">
+                            <!--HIEN THI SAN PHAM-->
+
+                            <div class="row product-view">
+                                <div class="col-sm-5 col-md-5 col-lg-5">
+                                    <div class="single-product-image">
+                                        <div class="Image">
+                                            <a href="@Model.Image" itemprop="image" class="yith_magnifier_zoom woocommerce-main-image" title="c3-1"><img width="660" height="635" src="@Model.Image" class="attachment-shop_single size-shop_single wp-post-image" alt="c3-1" srcset="@Model.Image 660w, @Model.Image 300w, @Model.Image 600w, @Model.Image 270w" sizes="(max-width: 660px) 100vw, 660px" /></a>
+                                            @*<a href="@Model.Image" itemprop="image" class="yith_magnifier_zoom woocommerce-main-image" title="@Model.NameWEB"><img src="@Model.Image" class="attachment-shop_single size-shop_single wp-post-image" alt="c3-1" sizes="(max-width: 660px) 100vw, 660px" /></a>*@
+                                            <div class="thumbnails slider">
+                                                <ul class="yith_magnifier_gallery">
+
+                                                    @{ int idMH = Model.ID;
+                                                        var ProductPic = new ProductPhotoDAO();
+                                                        var pic = ProductPic.GetPhotoByID(idMH);
+                                                    }
+                                                    @foreach (var a in pic)
+                                                    {
+                                                        <li class="yith_magnifier_thumbnail first">
+                                                            <a href="@a.Image" class="yith_magnifier_thumbnail first" title="c3-1" data-small="@a.Image">
+                                                                <img width="180" height="180" src="@a.Image" class="attachment-shop_thumbnail size-shop_thumbnail" alt="@Model.NameWEB" sizes="(max-width: 180px) 100vw, 180px" />
+                                                            </a>
+                                                        </li>
+                                                    }
+                                                    @*<li class="yith_magnifier_thumbnail"><a href="/wp-content/uploads/2016/03/c3-3-1-600x600.jpg" class="yith_magnifier_thumbnail" title="c3-3" data-small="/wp-content/uploads/2016/03/c3-3-1.jpg"><img width="180" height="180" src="/wp-content/uploads/2016/03/c3-3-1-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="c3-3"  sizes="(max-width: 180px) 100vw, 180px" /></a></li>
+                                                        <li class="yith_magnifier_thumbnail last"><a href="/wp-content/uploads/2016/03/c3-2-1-600x600.jpg" class="yith_magnifier_thumbnail last" title="c3-2" data-small="/wp-content/uploads/2016/03/c3-2-1.jpg"><img width="180" height="180" src="/wp-content/uploads/2016/03/c3-2-1-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="c3-2"  sizes="(max-width: 180px) 100vw, 180px" /></a></li>*@
+                                                </ul>
+                                                <div id="slider-prev"></div>
+                                                <div id="slider-next"></div>
+                                            </div>
+                                        </div>
+
+                                        <script type="text/javascript" charset="utf-8">
+                                            var yith_magnifier_options = {
+
+                                                enableSlider: true,
+
+                                                sliderOptions: {
+                                                    responsive: true,
+                                                    circular: true,
+                                                    infinite: true,
+                                                    direction: 'left',
+                                                    debug: false,
+                                                    auto: false,
+                                                    align: 'left',
+                                                    prev: {
+                                                        button: "#slider-prev",
+                                                        key: "left"
+                                                    },
+                                                    next: {
+                                                        button: "#slider-next",
+                                                        key: "right"
+                                                    },
+                                                    //width   : 678,
+                                                    scroll: {
+                                                        items: 1,
+                                                        pauseOnHover: true
+                                                    },
+                                                    items: {
+                                                        //width: 184,
+                                                        visible: 3
+                                                    }
+                                                },
+
+
+                                                showTitle: false,
+                                                zoomWidth: 'auto',
+                                                zoomHeight: 'auto',
+                                                position: 'right',
+                                                //tint: ,
+                                                //tintOpacity: ,
+                                                lensOpacity: 0.5,
+                                                softFocus: false,
+                                                //smoothMove: ,
+                                                adjustY: 0,
+                                                disableRightClick: false,
+                                                phoneBehavior: 'inside',
+                                                loadingLabel: 'Loading...',
+                                                zoom_wrap_additional_css: ''
+                                            };
+                                        </script>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-7 col-md-7 col-lg-7">
+                                    <div class="summary entry-summary single-product-info">
+
+                                        <h1 itemprop="name" class="product_title entry-title">@Model.NameWEB</h1>	<div class="woocommerce-product-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                                            @*<div class="ratings" title="Rated 0 out of 5">
+                                                    <i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i>
+                                                </div>*@
+                                            <a href="#">Mã sản phẩm: @Model.Code</a>
+                                            <a href="#reviews" class="woocommerce-review-link" rel="nofollow"><span itemprop="reviewCount" class="count">@Model.ViewCount</span> lượt xem</a>
+                                            @*<a href="javascript:void(0)" class="show-review-form"><i class="fa fa-edit"></i>write your review !</a>*@
+                                            @*<a class="share-to-friend" target="_blank" href="mailto:?subject=Sed Perspiciatis Unde"><i class="fa fa-envelope-o"></i>Send to a friend</a>*@
+                                        </div>
+                                        @*<div class="product_meta">
+                                            <span class="posted_in">Categories: <a href="product-category/cameras-photos/index.html" rel="tag">Cameras &amp; photos</a>, <a href="product-category/cameras-photos/canon/index.html" rel="tag">Canon</a>, <a href="product-category/cameras-photos/lends/index.html" rel="tag">Lends</a></span>
+                                            </div>*@
+                                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                            <p class="price"><span class="woocommerce-Price-amount amount">@*<span class="woocommerce-Price-currencySymbol">&#36;</span>*@@Html.FormatValue(Model.Price, "{0:#,###}") VNĐ</span></p>
+                                            <meta itemprop="price" content="400" />
+                                            <meta itemprop="priceCurrency" content="USD" />
+                                            <link itemprop="availability" href="http://schema.org/InStock" />
+                                        </div>
+                                        <form class="cart" method="post" enctype='multipart/form-data'>
+                                            @using (Html.BeginForm())
+                                            {
+                                                <input type="hidden" name="idMH" value="@Model.ID" />
+                                                <div class="quantity input-group cart">
+                                                    <span class="decrease qty-addon">-</span>
+                                                    <input type="text" step="1" min="1" max="100" name="soluong" value="1" title="Qty" class="input-text qty text quntity-input" size="4" />
+                                                    <span class="increase qty-addon">+</span>
+                                                </div>
+                                                @*<input type="hidden" name="add-to-cart" value="303" />*@
+                                                <button type="submit" data-id="@Model.ID" class="button btn-success" style="margin-right:10px;background:#029900;color:#FFFFFF;width:200px;border:0">Cho vào giỏ hàng</button>
+                                                <a href="/Order/muanhanh/@Model.ID" class="btn btn-danger"><span class="glyphicon glyphicon-ok-sign" style="margin-right:10px;"></span> Mua ngay</a>
+                                            }
+                                            @*<div class="yith-wcwl-add-to-wishlist add-to-wishlist-303">
+                                                    <div class="yith-wcwl-add-button show" style="display:block">
+
+                                                        <a href="index9eaf.html?add_to_wishlist=303" rel="nofollow" data-product-id="303" data-product-type="grouped" class="add_to_wishlist">
+                                                            Add to Wishlist
+                                                        </a>
+
+                                                    </div>
+                                                    <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+                                                        <span class="feedback">Product added!</span>
+                                                        <a href="wishlist/view/index.html" rel="nofollow">
+                                                            Browse Wishlist
+                                                        </a>
+                                                    </div>
+                                                    <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+                                                        <span class="feedback">Sản phẩm này đã có trong danh sách yêu thích!</span>
+                                                        <a href="wishlist/view/index.html" rel="nofollow">
+                                                            Browse Wishlist
+                                                        </a>
+                                                    </div>
+                                                    <div style="clear:both"></div>
+                                                    <div class="yith-wcwl-wishlistaddresponse"></div>
+
+                                                </div>*@
+                                            <div class="clear"></div>
+                                            @*<div class="woocommerce product compare-button"><a href="index228b.html?action=yith-woocompare-add-product&amp;id=303" class="compare button" data-product_id="303" rel="nofollow">Compare</a></div>*@
+                                        </form>
+                                        <div class="description">
+                                            <ul>
+                                                <li>
+                                                    Mã sản phẩm: @Model.Code
+                                                </li>
+                                                <li>Hãng sản xuất:: @Model.M1Suppliers.Name</li>
+                                                <li>Số Lượng: @Model.Quantity</li>
+                                            </ul>
+                                        </div>
+                                        <div class="widget widget_socialsharing_widget">
+                                            <ul class="social-icons">
+                                                <li><a class="facebook social-icon" href="javascript:void(0)" onclick="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u=@Request.Url.AbsoluteUri', '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600'); return false;" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a class="gplus social-icon" href="javascript:void(0)" onclick="javascript: window.open('https://plus.google.com/share?url=@Request.Url.AbsoluteUri', '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600'); return false;" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a class="linkedin social-icon" href="javascript:void(0)" onclick="javascript:window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=@Request.Url.AbsoluteUri', '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600'); return false;" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+                                            </ul>
+                                        </div>
+
+                                    </div><!-- .summary -->
+                                </div>
+                            </div>
+                            <!-- PHẦN MÔ TẢ VÀ BÌNH LUẬN SAN PHAM-->
+                            <div class="woocommerce-tabs wc-tabs-wrapper">
+                                <ul class="tabs wc-tabs">
+                                    <li class="description_tab">
+                                        <a href="#tab-description">Các bình luận - Đánh giá</a>
+                                    </li>
+                                    <li class="reviews_tab">
+                                        <a href="#tab-reviews">Thông tin sản phẩm</a>
+                                    </li>
+                                </ul>
+                                <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description">
+                                    <!---tab-description-->
+                                    <div class="fb-comments" data-href="@Request.Url.AbsoluteUri" data-width="100%" data-numposts="5"></div>
+
+                                </div>
+                                <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews">
+                                    <div id="reviews">
+                                        <div id="comments">
+                                            <!----reviews-->
+                                            @Html.Raw(Model.Detail)
+                                        </div>
+
+
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--/ END HIEN THI SAN PHAM-->
+                            <div class="woocommerce widget related_products_widget related products">
+                                <h3 class="widget-title"><span>Sản phầm cùng loại</span></h3>
+
+
+                                <div class="row-products">
+                                    <div class="shop-products products grid-view">
+                                        <div data-owl="slide" data-desksmall="3" data-tablet="2" data-mobile="1" data-tabletsmall="2" data-item-slide="4" data-margin="0" data-ow-rtl="false" class="owl-carousel owl-theme products-slide">
+                                            @foreach (var m in Model.M1ProductCategory.M1Product)
+                                            {
+                                                <div class="first last post-142 product type-product status-publish has-post-thumbnail product_cat-cameras product_cat-canon instock shipping-taxable purchasable product-type-simple">
+                                                    <div class="product-wrapper">
+                                                        <a href="/san-pham/@m.SeoTitle-@m.ID" class="woocommerce-LoopProduct-link">
+                                                            <div class="list-col4 ">
+                                                                <div class="product-image">
+
+                                                                    <a href="/san-pham/@m.SeoTitle-@m.ID" title="@m.NameWEB">
+                                                                        <img width="270" height="260" src="@m.Image" style="height:200px" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="c2-2" sizes="(max-width: 270px) 100vw, 270px" /><span class="shadow"></span>
+                                                                    </a>
+                                                                    <div class="quickviewbtn hidden-xs">
+                                                                        <a class="detail-link" href="/san-pham/@m.SeoTitle-@m.ID" title="@m.NameWEB"><i class="fa fa-external-link"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="list-col8 ">
+                                                                <div class="gridview">
+                                                                    <div class="products-info">
+                                                                        <h2 class="product-name">
+                                                                            <a href="/san-pham/@m.SeoTitle-@m.ID">@m.NameWEB</a>
+                                                                        </h2>
+                                                                        <div class="ratings"><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i></div>
+                                                                        <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(Model.Price, "{0:#,###}")VNĐ</span></div>
+                                                                    </div>
+                                                                    <div class="actions">
+                                                                        <ul class="add-to-links clearfix">
+                                                                            <li>
+                                                                                <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
+                                                                                    <span class="woocommerce-Price-amount amount">@Html.FormatValue(m.Price, "{0:#,###}")VNĐ</span>
+                                                                                    <a rel="nofollow" href="/Cart/AddSL/@Model.ID" class="button product_type_simple add_to_cart_button">Cho vào giỏ hàng</a>
+                                                                                </p>
+                                                                            </li>
+                                                                            <li>
+
+                                                                                <div class="yith-wcwl-add-to-wishlist add-to-wishlist-142">
+                                                                                    <div class="yith-wcwl-add-button show" style="display:block">
+
+                                                                                        <a href="index094c.html?add_to_wishlist=142" rel="nofollow" data-product-id="142" data-product-type="simple" class="add_to_wishlist">
+                                                                                            Đánh dấu thích
+                                                                                        </a>
+
+                                                                                    </div>
+                                                                                    @*<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+                                                                                            <span class="feedback">Product added!</span>
+                                                                                            <a href="wishlist/view/index.html" rel="nofollow">
+                                                                                                Xem danh sách yêu thích
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+                                                                                            <span class="feedback">Sản phẩm này đã có trong danh sách yêu thích!</span>
+                                                                                            <a href="wishlist/view/index.html" rel="nofollow">
+                                                                                                Xem danh sách yêu thích
+                                                                                            </a>
+                                                                                        </div>*@
+                                                                                    <div style="clear:both"></div>
+                                                                                    <div class="yith-wcwl-wishlistaddresponse"></div>
+
+                                                                                </div>
+                                                                                <div class="clear"></div>
+                                                                            </li>
+                                                                            @*<li>
+                                                                                    <div class="woocommerce product compare-button"><a href="index95cc.html?action=yith-woocompare-add-product&amp;id=142" class="compare button" data-product_id="142" rel="nofollow">Compare</a></div>
+                                                                                </li>*@
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <meta itemprop="url" content="/" />
+
+                        </div><!-- #product-303 -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+   

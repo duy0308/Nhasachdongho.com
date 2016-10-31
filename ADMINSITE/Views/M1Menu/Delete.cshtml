@@ -1,0 +1,75 @@
+﻿@model Models.EF.M1Menu
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+@Html.ActionLink(" << Quay lại", "Index")
+
+
+<div class="col-md-8">
+    <h3>Bạn có chắc muốn xóa menu "@Html.DisplayFor(model => model.Text)" hay không ?</h3>
+    @*<h4>M1Menu</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.M1MenuType.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.M1MenuType.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Text)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Text)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Link)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Link)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DisplayOrder)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DisplayOrder)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Target)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Target)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+        </dl>*@
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color pull-right">
+            <input type="submit" value="Đồng ý xóa" class="btn btn-primary btn-danger" /> 
+            
+        </div>
+        
+    }
+</div>

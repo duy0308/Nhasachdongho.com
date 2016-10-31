@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  
+  <group Text="Quản lý sản phẩm">
+    <item Text="Các mặt hàng" NavigateUrl="/Product" />
+    <item Text="Loại mặt hàng" NavigateUrl="/ProductCategory" />
+  </group>
+  <group Text="Quản lý bán hàng">
+    <item Text="Thông tin khách hàng" NavigateUrl="/Order/Custumer/" />
+    <item Text="Các đơn hàng" NavigateUrl="/Order/Index" />
+  </group>
+  <group Text="Quản lý bài viết">
+    <item Text="Nhóm bài viết" NavigateUrl="/M1ContentCategory" />
+    <item Text="Các bài viết" NavigateUrl="/M1Content" />
+  </group>
+  <group Text="Các tuỳ chọn">
+    <item Text="Đổi Logo" NavigateUrl="/Home/Logo" />
+    <item Text="Footer" NavigateUrl="/Home/Footer" />
+    <item Text="Giới thiệu" NavigateUrl="/Home/About" />
+  </group>
+  <group Text="Công cụ">
+    <item Text="Đồng bộ dữ liệu" NavigateUrl="/Home/Dongbo" />
+  </group>
+  <group Text="Chức năng khác">
+    <item Text="Quản lý Slide" NavigateUrl="/Home/Slide" />
+    <item Text="Quản lý Menu" NavigateUrl="/M1Menu" />
+  </group>
+</menu>

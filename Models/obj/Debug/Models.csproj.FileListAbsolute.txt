@@ -1,0 +1,79 @@
+E:\HVMOT\MVC5\Models\bin\Debug\Models.dll.config
+E:\HVMOT\MVC5\Models\bin\Debug\Models.dll
+E:\HVMOT\MVC5\Models\bin\Debug\Models.pdb
+E:\HVMOT\MVC5\Models\bin\Debug\EntityFramework.dll
+E:\HVMOT\MVC5\Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\HVMOT\MVC5\Models\bin\Debug\EntityFramework.xml
+E:\HVMOT\MVC5\Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\HVMOT\MVC5\Models\obj\Debug\Models.dll
+E:\HVMOT\MVC5\Models\obj\Debug\Models.pdb
+E:\4.CAC DU AN\MVC5\Models\bin\Debug\Models.dll.config
+E:\4.CAC DU AN\MVC5\Models\bin\Debug\Models.dll
+E:\4.CAC DU AN\MVC5\Models\bin\Debug\Models.pdb
+E:\4.CAC DU AN\MVC5\Models\bin\Debug\EntityFramework.dll
+E:\4.CAC DU AN\MVC5\Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\4.CAC DU AN\MVC5\Models\bin\Debug\EntityFramework.xml
+E:\4.CAC DU AN\MVC5\Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\4.CAC DU AN\MVC5\Models\obj\Debug\Models.dll
+E:\4.CAC DU AN\MVC5\Models\obj\Debug\Models.pdb
+E:\4.CAC DU AN\MVC5\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\MVC5\Models\bin\Debug\Models.dll.config
+C:\Users\admin\Desktop\MVC5\Models\bin\Debug\Models.dll
+C:\Users\admin\Desktop\MVC5\Models\bin\Debug\Models.pdb
+C:\Users\admin\Desktop\MVC5\Models\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\MVC5\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\admin\Desktop\MVC5\Models\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\MVC5\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\admin\Desktop\MVC5\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\MVC5\Models\obj\Debug\Models.dll
+C:\Users\admin\Desktop\MVC5\Models\obj\Debug\Models.pdb
+C:\Users\admin\Desktop\HVM_MVC5\Models\bin\Debug\Models.dll.config
+C:\Users\admin\Desktop\HVM_MVC5\Models\bin\Debug\Models.dll
+C:\Users\admin\Desktop\HVM_MVC5\Models\bin\Debug\Models.pdb
+C:\Users\admin\Desktop\HVM_MVC5\Models\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\HVM_MVC5\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\admin\Desktop\HVM_MVC5\Models\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\HVM_MVC5\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\admin\Desktop\HVM_MVC5\Models\obj\Debug\Models.dll
+C:\Users\admin\Desktop\HVM_MVC5\Models\obj\Debug\Models.pdb
+E:\HVM_MVC5\Models\bin\Debug\Models.dll.config
+E:\HVM_MVC5\Models\bin\Debug\Models.dll
+E:\HVM_MVC5\Models\bin\Debug\Models.pdb
+E:\HVM_MVC5\Models\bin\Debug\EntityFramework.dll
+E:\HVM_MVC5\Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\HVM_MVC5\Models\bin\Debug\EntityFramework.xml
+E:\HVM_MVC5\Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\HVM_MVC5\Models\obj\Debug\Models.dll
+E:\HVM_MVC5\Models\obj\Debug\Models.pdb
+E:\HVM_MVC5\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\HVM_MVC5\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+E:\HVM_MVC5\PROJECT\Models\bin\Debug\Models.dll.config
+E:\HVM_MVC5\PROJECT\Models\bin\Debug\Models.dll
+E:\HVM_MVC5\PROJECT\Models\bin\Debug\Models.pdb
+E:\HVM_MVC5\PROJECT\Models\bin\Debug\EntityFramework.dll
+E:\HVM_MVC5\PROJECT\Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\HVM_MVC5\PROJECT\Models\bin\Debug\EntityFramework.xml
+E:\HVM_MVC5\PROJECT\Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\HVM_MVC5\PROJECT\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+E:\HVM_MVC5\PROJECT\Models\obj\Debug\Models.dll
+E:\HVM_MVC5\PROJECT\Models\obj\Debug\Models.pdb
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\Models\bin\Debug\Models.dll.config
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\Models\bin\Debug\Models.dll
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\Models\bin\Debug\Models.pdb
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\Models\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\Models\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\Models\obj\Debug\Models.dll
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\Models\obj\Debug\Models.pdb
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\bin\Debug\Models.dll.config
+F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\bin\Debug\Models.dll
+F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\bin\Debug\Models.pdb
+F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\bin\Debug\EntityFramework.dll
+F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\bin\Debug\EntityFramework.SqlServer.dll
+F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\bin\Debug\EntityFramework.xml
+F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\bin\Debug\EntityFramework.SqlServer.xml
+F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\obj\Debug\Models.dll
+F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\obj\Debug\Models.pdb

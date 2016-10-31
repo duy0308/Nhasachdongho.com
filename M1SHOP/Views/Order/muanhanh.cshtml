@@ -1,0 +1,285 @@
+﻿@model Models.EF.M1Product
+@{
+    ViewBag.Title = "Mua ngay sản phẩm";
+    Layout = "~/Views/Shared/LayoutHeader.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container wrapper">
+        <div class="row cart-head">
+            <div class="container">
+                <div class="row">
+                    <p></p>
+                </div>
+                <div class="row">
+                    <div style="display: table; margin: auto;">
+                        <span class="step step_complete"> <a href="#" class="check-bc">Giỏ hàng</a> <span class="step_line step_complete"> </span> <span class="step_line backline"> </span> </span>
+                        <span class="step step_complete"> <a href="#" class="check-bc">Đặt hàng</a> <span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
+                        <span class="step_thankyou check-bc step_complete">Hoàn tất đặt hàng</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="row cart-body">
+            <form class="form-horizontal" method="post" action="">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
+                    <!--REVIEW ORDER-->
+                    <div class="panel panel-info">
+                        <div class="panel-heading">THÔNG TIN ĐƠN HÀNG</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-sm-3 col-xs-3">
+                                    <img class="img-responsive" src="/Images/Product/@Model.Image" />
+                                </div>
+                                <div class="col-sm-6 col-xs-6">
+                                    <div class="col-xs-12">@Model.NameWEB</div>
+                                    <div class="col-xs-12"><small>Số lượng: <input id="soluong" type="number" name="soluong" min="1" max="100" value="1"></small></div>
+                                </div>
+                                <div class="col-sm-3 col-xs-3 text-right">
+                                    <h6>@Html.FormatValue(Model.Price, "{0:#,###}")</h6>
+                                    <h6 id="giabanle" style="display:none">@Html.FormatValue(Model.Price, "{0:0}")</h6>
+                                </div>
+                            </div>
+                            <div class="form-group"><hr /></div>
+
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="pull-right"><h5><strong style="color:red">Tổng cộng: <span id="tongtien"></span>đ</strong> </h5></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--REVIEW ORDER END-->
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
+                    <!--SHIPPING METHOD-->
+                    <div class="panel panel-info">
+                        <div class="panel-heading">THÔNG TIN NGƯỜI NHẬN</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-md-12"><strong>Họ tên<font color="red"><b>*</b></font></strong></div>
+                                <div class="col-md-12">
+                                    @Html.TextBox("TenNguoiNhan", null, new { @class = "form-control", placeholder = "Họ tên người liên hệ nhận hàng", required = true })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-xs-12">
+                                    <strong>Số điện thoại<font color="red"><b>*</b></font></strong>
+                                    @Html.TextBox("SoDTLienLac", null, new { @class = "form-control", placeholder = "Số điện thoại liên hệ", type = "number", required = true })
+                                </div>
+                                <div class="span1"></div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12"><strong>Địa chỉ</strong></div>
+                                <div class="col-md-12">
+                                    @Html.TextBox("DiaChiGuiHang", null, new { @class = "form-control", placeholder = "Địa chỉ nhận hàng" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12"><strong>Email Address (nếu có)</strong></div>
+                                <div class="col-md-12">@Html.TextBox("Email", null, new { @class = "form-control", placeholder = "Địa chỉ Email" })</div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12"><strong>Ghi chú (nếu có)</strong></div>
+                                <div class="col-md-12">
+                                    @Html.TextArea("Ghichu", null, new { @class = "form-control", placeholder = "Ghi chú của khách hàng" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6" style="text-align:center!important; margin:30px 0 0 120px;">
+                                    <button class="btn btn-success btn-block">Đặt hàng</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--SHIPPING METHOD END-->
+
+                </div>
+
+            </form>
+        </div>
+        <div class="row cart-footer">
+
+        </div>
+    </div>
+
+
+}
+<script>
+    $(function () {
+        $("#soluong").change("change paste keyup", function () {
+            number = $(this).val();
+            giatien = $("#giabanle").text();
+            var tongtien = number * giatien;
+            tongtien = tongtien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            $('#tongtien').html(tongtien);
+        });
+        $("#soluong").change();
+
+    });
+
+</script>
+<style>
+       #tongtien {
+           color: red;
+       }
+
+       .steps {
+           margin-top: -41px;
+           display: inline-block;
+           float: right;
+           font-size: 16px;
+       }
+
+       .step {
+           float: left;
+           background: white;
+           padding: 7px 13px;
+           border-radius: 1px;
+           text-align: center;
+           width: 100px;
+           position: relative;
+       }
+
+       .step_line {
+           margin: 0;
+           width: 0;
+           height: 0;
+           border-left: 16px solid #fff;
+           border-top: 16px solid transparent;
+           border-bottom: 16px solid transparent;
+           z-index: 1008;
+           position: absolute;
+           left: 99px;
+           top: 1px;
+       }
+
+           .step_line.backline {
+               border-left: 20px solid #f7f7f7;
+               border-top: 20px solid transparent;
+               border-bottom: 20px solid transparent;
+               z-index: 1006;
+               position: absolute;
+               left: 99px;
+               top: -3px;
+           }
+
+       .step_complete {
+           background: #357ebd;
+       }
+
+           .step_complete a.check-bc, .step_complete a.check-bc:hover, .afix-1, .afix-1:hover {
+               color: #eee;
+           }
+
+       .step_line.step_complete {
+           background: 0;
+           border-left: 16px solid #357ebd;
+       }
+
+       .step_thankyou {
+           float: left;
+           background: white;
+           padding: 7px 13px;
+           border-radius: 1px;
+           text-align: center;
+           width: 150px;
+           color: #FFFFFF !important;
+           background: #357ebd;
+       }
+
+       .step.check_step {
+           margin-left: 5px;
+       }
+
+       .ch_pp {
+           text-decoration: underline;
+       }
+
+           .ch_pp.sip {
+               margin-left: 10px;
+           }
+
+       .check-bc,
+       .check-bc:hover {
+           color: #222;
+       }
+
+       .SuccessField {
+           border-color: #458845 !important;
+           -webkit-box-shadow: 0 0 7px #9acc9a !important;
+           -moz-box-shadow: 0 0 7px #9acc9a !important;
+           box-shadow: 0 0 7px #9acc9a !important;
+           background: #f9f9f9 url(../images/valid.png) no-repeat 98% center !important;
+       }
+
+       .btn-xs {
+           line-height: 28px;
+       }
+       /*
+    * BOOTSTRAP
+    */
+       .container {
+           border: none;
+       }
+
+       .panel-footer {
+           background: #fff;
+       }
+
+       .btn {
+           border-radius: 1px;
+       }
+
+       .btn-sm, .btn-group-sm > .btn {
+           border-radius: 1px;
+       }
+
+       .input-sm, .form-horizontal .form-group-sm .form-control {
+           border-radius: 1px;
+       }
+
+       .panel-info {
+           border-color: #0088CC;
+       }
+
+       .panel-heading {
+           border-top-left-radius: 1px;
+           border-top-right-radius: 1px;
+       }
+
+       .panel {
+           border-radius: 1px;
+       }
+
+       .panel-info > .panel-heading {
+           color: #eee;
+           border-color: #999;
+       }
+
+       .panel-info > .panel-heading {
+           background-image: linear-gradient(to bottom, #0088CC 0px, #0293DC 100%);
+       }
+
+       hr {
+           border-color: #999 -moz-use-text-color -moz-use-text-color !important;
+       }
+
+       .panel-footer {
+           border-bottom-left-radius: 1px;
+           border-bottom-right-radius: 1px;
+           border-top: 1px solid #999;
+       }
+
+       .btn-link {
+           color: #888;
+       }
+</style>

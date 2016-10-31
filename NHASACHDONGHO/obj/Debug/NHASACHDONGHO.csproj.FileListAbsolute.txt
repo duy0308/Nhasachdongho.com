@@ -1,0 +1,68 @@
+E:\HVMOT\MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll.config
+E:\HVMOT\MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll
+E:\HVMOT\MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.pdb
+E:\HVMOT\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.dll
+E:\HVMOT\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.dll
+E:\HVMOT\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.xml
+E:\HVMOT\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.xml
+E:\HVMOT\MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.dll
+E:\HVMOT\MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.pdb
+E:\4.CAC DU AN\MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll.config
+E:\4.CAC DU AN\MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll
+E:\4.CAC DU AN\MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.pdb
+E:\4.CAC DU AN\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.dll
+E:\4.CAC DU AN\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.dll
+E:\4.CAC DU AN\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.xml
+E:\4.CAC DU AN\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.xml
+E:\4.CAC DU AN\MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.dll
+E:\4.CAC DU AN\MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.pdb
+E:\4.CAC DU AN\MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll.config
+C:\Users\admin\Desktop\MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll
+C:\Users\admin\Desktop\MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.pdb
+C:\Users\admin\Desktop\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\admin\Desktop\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\admin\Desktop\MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.dll
+C:\Users\admin\Desktop\MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.pdb
+C:\Users\admin\Desktop\HVM_MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll.config
+C:\Users\admin\Desktop\HVM_MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll
+C:\Users\admin\Desktop\HVM_MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.pdb
+C:\Users\admin\Desktop\HVM_MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\HVM_MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\admin\Desktop\HVM_MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\HVM_MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\admin\Desktop\HVM_MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\HVM_MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.dll
+C:\Users\admin\Desktop\HVM_MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.pdb
+E:\HVM_MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll.config
+E:\HVM_MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll
+E:\HVM_MVC5\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.pdb
+E:\HVM_MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.dll
+E:\HVM_MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.dll
+E:\HVM_MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.xml
+E:\HVM_MVC5\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.xml
+E:\HVM_MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.dll
+E:\HVM_MVC5\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.pdb
+E:\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll.config
+E:\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll
+E:\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.pdb
+E:\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\EntityFramework.dll
+E:\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.dll
+E:\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\EntityFramework.xml
+E:\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.xml
+E:\HVM_MVC5\PROJECT\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.csprojResolveAssemblyReference.cache
+E:\HVM_MVC5\PROJECT\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.dll
+E:\HVM_MVC5\PROJECT\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.pdb
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll.config
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.pdb
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.dll
+C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.pdb

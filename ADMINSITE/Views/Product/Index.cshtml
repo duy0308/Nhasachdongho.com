@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewBag.Title = "Quản lý các mặt hàng";
+}
+<br />
+<!-- Paste this code after body tag -->
+<div class="se-pre-con"></div>
+<!-- Ends -->
+<div class="col-md-12">
+<div class="col-md-2">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                Chọn kiểu lọc dữ liệu
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" id="kieuloc">
+                <li><a href="#" data-view="xem10">Xem 10 mặt hàng mới tạo</a></li>
+                <li><a href="#" data-view="xem50">Xem 50 mặt hàng mới tạo</a></li>
+                <li><a href="#" data-view="xem100">Xem 100 mặt hàng mới tạo</a></li>
+                <li><a href="#" data-view="all">Xem tất cả mặt hàng</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
+    </div>
+  
+</div>
+@*<div class="col-md-10" id="LoadingImage" style="display: none; z-index:9999;margin:auto">
+    <img src="~/Images/Preloader_2.gif" width="50px" />
+</div>*@
+<script>
+    $(function () {
+        $(".dropdown-menu li a").click(function () {
+            //$("#LoadingImage").show();
+            //Lấy ID loại mặt hàng
+            var idLoai = $('#CategoryID').val();
+            //Lấy kiểu hiển thị
+            $showData = $(this).attr("data-view");
+
+            $(window).attr("location", "/Product/"+$showData);
+            //Thực hiện gọi Contronler
+            //$.ajax({
+            //    type: "POST",
+            //    url: "/Product/GridViewPartial",
+            //    data: { hienthi: $showData},
+            //    success: function (response) {
+            //        $("#LoadingImage").hide();
+            //        $("#gridview").html(response);
+            //    }
+            //});
+            //alert(action);
+        });
+    });
+
+    $(function () {
+        $('#CategoryID').change(function () {
+           // $("#LoadingImage").show();
+            //Lấy ID loại mặt hàng
+            var idLoai = $("#CategoryID option:selected").val();
+            $(window).attr("location", "/Product/cate/" + idLoai);
+            //Lấy kiểu hiển thị
+            //$showData = $(this).attr("data-view");
+            //Thực hiện gọi Contronler
+            //$.ajax({
+            //    type: "POST",
+            //    url: "/Product/GridViewPartial2",
+            //    data: { id : idLoai },
+            //    success: function (response) {
+            //        $("#LoadingImage").hide();
+            //        $("#gridview").html(response);
+            //    }
+            //});
+        });
+    });
+
+</script>
+
+
+
+@*<div id="gridview"></div>*@
+
+    <div class="col-md-12">
+            @{
+                var grid = Html.DevExpress().GridView(settings =>
+                {
+                    settings.Name = "GridView";
+                    settings.CallbackRouteValues = new { Controller = "Product", Action = "Index" };
+
+                    settings.KeyFieldName = "ID";
+
+                    //settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Product", Action = "GridViewPartialAddNew" };
+                    //settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Product", Action = "GridViewPartialUpdate" };
+                    //settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Product", Action = "GridViewPartialDelete" };
+                    //settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+                    //settings.SettingsBehavior.ConfirmDelete = true;
+
+                    //settings.CommandColumn.Visible = true;
+                    //settings.CommandColumn.ShowNewButton = false;
+                    //settings.CommandColumn.ShowDeleteButton = false;
+                    //settings.CommandColumn.ShowEditButton = false;
+
+                    settings.SettingsPager.Visible = true;
+                    settings.Settings.ShowGroupPanel = true;
+                    settings.Settings.ShowFilterRow = true;
+
+                    settings.SettingsBehavior.AllowSelectByRowClick = true;
+                    settings.SettingsPager.FirstPageButton.Visible = true;
+                    settings.SettingsPager.LastPageButton.Visible = true;
+                    settings.SettingsPager.PageSize = 20;
+                    settings.SettingsPager.SEOFriendly = SEOFriendlyMode.Enabled;
+                    settings.SettingsPager.PageSizeItemSettings.Visible = true;
+                    settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "10", "15", "20", "25", "30", "35", "40", "45", "50", "100" };
+
+                    settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCellsWindowLimit;
+                    settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Left;
+                    settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+                    settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+                    settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+                    //settings.Columns.Add("ID");
+                    settings.Columns.Add("NameWEB", "Tên mặt hàng");
+                    settings.Columns.Add("Code", "Mặt hàng CODE");
+                    settings.Columns.Add("Price", "Giá bán").PropertiesEdit.DisplayFormatString = "#,##0";
+                    settings.Columns.Add("Status", "Hiển thị Web", MVCxGridViewColumnType.CheckBox);
+                    settings.Columns.Add("Showhome", "Hiển thị trang chủ", MVCxGridViewColumnType.CheckBox);
+                    settings.Columns.Add("CreatedDate", "Ngày nhập").PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
+                    settings.Columns.Add("ModifiedDate", "Ngày cập nhật").PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
+                    settings.Columns.Add(column =>
+                    {
+                        column.Caption = "#";
+                        column.SetDataItemTemplateContent(c =>
+                        {
+                            ViewContext.Writer.Write(
+                                Html.ActionLink("Edit", "Edit", new { id = DataBinder.Eval(c.DataItem, "ID") })// + "&nbsp;" //+
+                                                                                                               //Html.ActionLink("Delete", "ExternalEditFormDelete", new { ProductID = DataBinder.Eval(c.DataItem, "ID") },
+                                                                                                               //    new { onclick = "return confirm('Do you really want to delete this record?')" })
+                            );
+                        });
+                        //column.SetHeaderTemplateContent(c =>
+                        //{
+                        //    ViewContext.Writer.Write(
+                        //        Html.ActionLink("New", "New", new { ProductID = -1 }).ToHtmlString()
+                        //    );
+                        //});
+                        column.Settings.AllowDragDrop = DefaultBoolean.False;
+                        column.Settings.AllowSort = DefaultBoolean.False;
+                        column.Width = 70;
+                    });
+                });
+                if (ViewData["EditError"] != null)
+                {
+                    grid.SetEditErrorText((string)ViewData["EditError"]);
+                }
+            }
+            @grid.Bind(Model).GetHtml()
+        </div>

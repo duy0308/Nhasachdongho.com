@@ -1,0 +1,222 @@
+/*
+Theme Name: Bigshop
+Theme URI: http://woocommerce.izzitemplates.com/bigshop
+Author: Bigshop Team
+Author URI: http://izzitemplates.com/
+Description: Bigshop is a new WordPress theme for Online Shopping. With this theme, we have presets and different layouts. With drag and drop home page layout manager, we can build many variations of home page layout. We also have ajax cart, wishlist, compare, zoom and fancybox to bring into a modern look of website. Some of amazing features like Revolution Slider, Mega Menu, Visual Composer, Product Tabs & Carousel will makes your website more attractive.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, gray, white, one-column, two-columns, right-sidebar, fluid-layout, responsive-layout, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
+Text Domain: bigshop
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+*/
+
+
+/*------------------------------------------------------------------
+[Table of contents]
+
+This theme compiles .less files into .css files. Please open "less" folder to see all LESS file.
+
+1. theme.less
+	- Main file to import other files in order.
+	
+2. variables.less
+    1.1 Dynamic variables from theme options
+    1.2 Colors defined for header, footer, menu
+
+3. Mixin style
+	- gradient_button(@color)
+	- imagehover()
+	- hoverarea()
+	- imagezoom()
+	- buttonMixin()
+	- titlestyle()
+	- titlestyle_cate()
+	- addwishlist()
+	- comparebutton()
+	
+2. reset.less
+    - Body / body
+    - Anchor tag / a
+    - Image / img
+    - Heading / h1, h2, h3, h4, h5, h6
+    - Button / .button
+	- form input, textarea, select, vitual select
+    - List / ul, ol
+    - Table / table
+
+4. global.less
+    - Header Default / .header-container
+    - button / .buttonMixin()
+    - Tooltip / .tooltip
+    - page-content / .page-content
+    - page title / .widget-title
+    - Page layout / .box-layout
+	- Header Default / .footer
+	- Content / .main-wrapper
+		- Sidebar / #secondary
+		- Back To Top / #back-top
+		- Page 404 / .page-404
+		- Loading
+	- Global message style
+	
+5. woocommerce.less
+	- WooCommerce Breadcrumbs / .woocommerce-breadcrumb
+	- WooCommerce onsale label / .onsale
+	- WooCommerce ratings / .ratings
+	- WooCommerce toolbar / .toolbar
+	- WooCommerce List Gird / .shop-products
+	- WooCommerce Product List Widget / .product_list_widget
+	- WooCommerce Product View / .product-view
+	- WooCommerce Check Out / .woocommerce-checkout
+	- WooCommerce View Cart / .shop_table
+	- WooCommerce Wishlist Table / .wishlist_table
+	- WooCommerce Quick View / .quickview-wrapper
+	- WooCommerce Top Cart / .topcart 
+	
+6. blog.less
+	- Blog Posts / .blog-posts
+	- Blog Page Posts / .post
+	- Blog Widgets
+	
+7. menu.less
+	- Default WP menu / .nav-menu
+	- Default WP Menu With Selected Location / .primary-menu-container
+	- Megamenu Main Menu / #mega_main_menu
+	- Categories Menu / #mega_main_menu_custom
+8. mobilemenu.less
+	- Style menu apply for different screen sizes / Responsive menu
+	
+9. layouts.less
+	- Global layout
+	- Home page 1, 2, 3 layout
+	
+10. responsive.less
+	- Style apply for different screen sizes / Responsive all page
+-------------------------------------------------------------------*/
+
+
+.alignnone {
+    margin: 20px 0px 30px 0;
+}
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 30px auto;
+}
+.alignright {
+    float:right;
+    margin: 5px 0 30px 20px;
+}
+.alignleft {
+    float: left;
+    margin: 5px 20px 30px 0;
+}
+a img.alignright {
+    float: right;
+    margin: 5px 0 30px 20px;
+}
+a img.alignnone {
+    margin: 5px 0px 30px 0;
+}
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 30px 0;
+}
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+.bypostauthor{
+	display: inline-block;
+}
+.wp-caption {
+	border: none;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 5px 20px;
+    text-align: center;
+}
+.wp-caption.alignnone {
+    margin: 20px 0 20px 0;
+}
+.wp-caption.alignleft {
+    margin: 5px 20px 15px 0;
+}
+.wp-caption.alignright {
+    margin: 5px 0 20px 15px;
+}
+.wp-caption.aligncenter{
+	margin: 5px auto 20px auto;
+}
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+.wp-caption p.wp-caption-text {
+    font-size: 12px;
+    line-height: 17px;
+    margin: 3px 0 0;
+    padding: 0 4px 5px;
+}
+.wp-caption .wp-caption-text,
+.gallery-caption,
+.entry-caption {
+	font-style: italic;
+	font-size: 12px;
+	line-height: 2;
+	color: #757575;
+}
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+.entry-content .page-links{
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	vertical-align: middle;
+}
+.entry-content .page-links{
+	text-align: left;
+	display: inline-block;
+	width: 100%;
+	vertical-align: middle;
+}
+.entry-content .page-links > span{
+	display: inline-block;
+    line-height: 37px;
+    margin: 20px 10px 20px 0;
+    vertical-align: top;
+}

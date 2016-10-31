@@ -1,0 +1,121 @@
+﻿@model Models.EF.M1Orders
+@using Models.EF
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutHeader.cshtml";
+}
+<style>
+    .box__header {
+        border-bottom: 1px solid #d2d2d2;
+        padding: 14px 20px;
+    }
+
+    .box__title {
+        display: inline-block;
+        margin: 0;
+        color: #000000;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 22px;
+    }
+
+    textarea {
+        width: 100% !important;
+        height: 75px;
+    }
+</style>
+
+<!--------------------------------------------------------->
+@foreach (var u in ViewBag.Thanhvien)
+{
+    <div class="row" style="background:#fff">
+        <div class="box__header">
+            <h2 class="box__title">THÔNG TIN NGƯỜI NHẬN</h2>
+            <table class="table table--keyval">
+                <tbody>
+                    <tr>
+                        <th>Người nhận</th>
+                        <td>@u.Name</td>
+                    </tr>
+                    <tr>
+                        <th>Địa chỉ nhận hàng</th>
+                        <td>@u.Address</td>
+                    </tr>
+                    <tr>
+                        <th>Điện thoại liên hệ</th>
+                        <td class="orderStatusText">
+                            @u.Phone
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Địa chỉ nhận hàng</th>
+                        <td class="orderStatusText"> @u.Address</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+
+    </div>
+                                }
+<div class="row" style="background:#fff">
+    <div class="panel panel-success col-md-12">
+        <div class="panel-heading"> <h3 class="panel-title">Thông tin chi tiết giỏ hàng của khách hàng</h3> </div>
+        <div class="panel-body">
+            <table class="table table-hover table-responsive" style="width:100%">
+                <tr>
+                    <th></th>
+                    <th>Tên mặt hàng</th>
+                    <th>Giá bán</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th></th>
+                </tr>
+                @{
+                    int i = 1;
+                    foreach (var p in M1SHOP.Models.CartShopping.Cart.Items)
+                    {
+                        <tr>
+                            <td style="text-align:center">@i</td>
+                            <td>@p.NameWEB</td>
+                            <td style="text-align:center">@Html.FormatValue(p.Price, "{0:#,###}")</td>
+                            <td style="text-align:center">@p.Quantity</td>
+                            <td style="text-align:center">@Html.FormatValue((p.Price * p.Quantity * 1), "{0:#,###}")</td>
+                            @*<td style="text-align:center">
+                                    <a href="#" class="remove-from-cart" data-id="@p.MHID">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </td>*@
+                        </tr>
+                        i++;
+                    }
+                    <tr>
+                        <td colspan="6" align="right" style="color:red; font-weight:bold; font-size:16px">Tổng cộng: @Html.FormatValue(M1SHOP.Models.CartShopping.Cart.tongcong, "{0:#,###}") VNĐ </td>
+                    </tr>
+                }
+            </table>
+            @using (Html.BeginForm("Checkout", "Order", FormMethod.Post,
+                                                                        new { enctype = "multipart/form-data" }))
+            {
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label>Thông tin ghi chú:</label>
+                        @Html.TextAreaFor(m => m.Description, new { cols = "12", rows = "3", name = "ghichu", maxlength = "1000" })
+                        @*<textarea cols="12" rows="3" name="ghichu" maxlength="1000"></textarea>*@
+
+                    </div>
+                </div>
+                            <div style="text-align:center;">
+                                <a href="/Cart"><i class="btn btn-warning"><span class="fa fa-refresh"></span> Xem lại giỏ hàng</i></a>
+                                @*<a class="btn btn-default" href="/Cart/Clear">Clear</a>*@
+                                <button class="btn btn-danger"><span class="fa fa-shopping-cart"></span> Hoàn tất đặt hàng</button>
+                            </div>
+            }
+        </div>
+    </div>
+    <!------------------------------------------->
+</div>
+

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Models.EF.M1Orders>
+@{
+    ViewBag.Title = "Các đơn đặt hàng";
+}
+<div class="panel panel-primary" style="margin:5px;">
+        <div class="panel-heading"> <h3 class="panel-title">THÔNG TIN CHI TIẾT ĐƠN ĐẶT HÀNG</h3> </div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã đơn hàng</th>
+                        <th>Người đặt hàng</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                        <th></th>
+                    </tr>
+                </tbody>
+                @{
+                    var i = 0;
+                }
+                @foreach (var m in Model)
+                {
+                    i++;
+                    int trangthai = int.Parse(m.Status.ToString());
+                    <tr>
+                        <td>@i</td>
+                        <td>@m.MaDonHang</td>
+                        <td>@m.ShipName</td>
+                        <td>@m.ShipMobile</td>
+                        <td>@m.ShipAddress</td>
+                        <td>@m.Amount</td>
+                        <td>
+                            @{
+                                if (trangthai == 1)
+                                { <span class="label label-warning">Đang chờ duyệt</span> }
+                                if (trangthai == 2)
+                                { <span class="label label-primary">Đã duyệt, chờ giao hàng</span> }
+                                if (trangthai == 3)
+                                { <span class="label label-info">Đang giao hàng</span> }
+                                if (trangthai == 4)
+                                {<span class="label label-danger">Trả hàng</span> }
+                                if (trangthai == 5)
+                                { <span class="label label-success">Đã hoàn tất</span> }
+                            }
+                        </td>
+                        <td>
+                            @{ var idUpdate = m.ID + "update";}
+                            <a data-toggle="modal" href="/Order/OrderUpdate/@m.ID" data-target="#@idUpdate" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Cập nhật</a>
+                            <a data-toggle="modal" href="/Order/OrderDetails/@m.ID" data-target="#@m.ID" class="btn btn-success"><span class="glyphicon glyphicon-list"></span> Xem chi tiết</a>
+                            <!-- Modal -->
+
+                            <div class="modal fade bs-example-modal-lg" id="@m.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content"> </div>
+                                </div>
+                            </div>
+                            <!-- /.modal -->
+                            <!-- Modal -->
+                            <div class="modal fade" id="@idUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- /.modal -->
+                        </td>
+
+                    </tr>
+                                }
+            </table>
+
+        </div>
+    </div>        
