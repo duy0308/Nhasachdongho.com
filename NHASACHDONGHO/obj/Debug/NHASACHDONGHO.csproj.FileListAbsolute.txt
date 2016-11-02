@@ -66,3 +66,12 @@ C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\bin\Debug\EntityFramework.
 C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.csprojResolveAssemblyReference.cache
 C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.dll
 C:\Users\admin\Desktop\HVM_MVC5\PROJECT\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.pdb
+D:\Work\FreeLancer\Nhasachdongho.com\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll.config
+D:\Work\FreeLancer\Nhasachdongho.com\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.dll
+D:\Work\FreeLancer\Nhasachdongho.com\NHASACHDONGHO\bin\Debug\NHASACHDONGHO.pdb
+D:\Work\FreeLancer\Nhasachdongho.com\NHASACHDONGHO\bin\Debug\EntityFramework.dll
+D:\Work\FreeLancer\Nhasachdongho.com\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\FreeLancer\Nhasachdongho.com\NHASACHDONGHO\bin\Debug\EntityFramework.xml
+D:\Work\FreeLancer\Nhasachdongho.com\NHASACHDONGHO\bin\Debug\EntityFramework.SqlServer.xml
+D:\Work\FreeLancer\Nhasachdongho.com\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.dll
+D:\Work\FreeLancer\Nhasachdongho.com\NHASACHDONGHO\obj\Debug\NHASACHDONGHO.pdb

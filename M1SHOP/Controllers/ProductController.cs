@@ -21,19 +21,28 @@ namespace M1SHOP.Controllers
             var model = db.M1Product.OrderByDescending(p => p.ModifiedDate).ToList();
             return View(model.ToPagedList(pageNumber, pageSize));
         }
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var model = db.M1Product.Find(id);
-            
-            if (model == null)
+            M1Product model;
+            try
             {
-                return HttpNotFound();
+                model = db.M1Product.Find(id);
+
+                if (model == null)
+                {
+                    return HttpNotFound();
+                }
             }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             return View(model);
         }
         public ActionResult ListNew(int? page)

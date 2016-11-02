@@ -77,3 +77,13 @@ F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\bin\Debug\EntityFramework.Sql
 F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\obj\Debug\Models.dll
 F:\Bui_Duc_Duy\Work\DuAn\Donghosach\PROJECT\Models\obj\Debug\Models.pdb
+D:\Work\FreeLancer\Nhasachdongho.com\Models\bin\Debug\Models.dll.config
+D:\Work\FreeLancer\Nhasachdongho.com\Models\bin\Debug\Models.dll
+D:\Work\FreeLancer\Nhasachdongho.com\Models\bin\Debug\Models.pdb
+D:\Work\FreeLancer\Nhasachdongho.com\Models\bin\Debug\EntityFramework.dll
+D:\Work\FreeLancer\Nhasachdongho.com\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\FreeLancer\Nhasachdongho.com\Models\bin\Debug\EntityFramework.xml
+D:\Work\FreeLancer\Nhasachdongho.com\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\Work\FreeLancer\Nhasachdongho.com\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+D:\Work\FreeLancer\Nhasachdongho.com\Models\obj\Debug\Models.dll
+D:\Work\FreeLancer\Nhasachdongho.com\Models\obj\Debug\Models.pdb
