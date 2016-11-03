@@ -8,7 +8,7 @@ public class XAuthorizeAttribute: ActionFilterAttribute
 {
     public override void OnActionExecuting(ActionExecutingContext filterContext)
     {
-        if (HttpContext.Current.Session["Custumer"] == null)
+        if (HttpContext.Current.Session["User"] == null)
         {
             HttpContext.Current.Session["ReturnUrl"] = HttpContext.Current.Request.Url.AbsoluteUri;
             HttpContext.Current.Response.Redirect("/Account/Login");
