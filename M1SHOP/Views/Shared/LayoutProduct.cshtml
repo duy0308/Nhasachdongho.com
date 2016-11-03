@@ -19,7 +19,7 @@
         #rs-demo-id {
         }
     </style>
-    
+
     <link rel='stylesheet' id='jquery-selectBox-css' href='/wp-content/plugins/yith-woocommerce-wishlist/assets/css/jquery.selectBox7359.css' type='text/css' media='all' />
     <link rel='stylesheet' id='yith-magnifier-css' href='/wp-content/plugins/yith-woocommerce-zoom-magnifier/assets/css/yith_magnifier62d0.css' type='text/css' media='all' />
     <link rel='stylesheet' id='yith_wcmg_frontend-css' href='/wp-content/plugins/yith-woocommerce-zoom-magnifier/assets/css/frontend62d0.css' type='text/css' media='all' />
@@ -36,9 +36,9 @@
     <script>
         //paste this code under the head tag or in a separate js file.
         // Wait for window load
-        $(window).load(function() {
-        // Animate loader off screen
-        $(".se-pre-con").fadeOut("slow");;
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
         });
     </script>
     <style type="text/css" title="dynamic-css" class="options-output">
@@ -98,26 +98,26 @@
 </head>
 <body class="single single-product postid-303 mmm mega_main_menu-2-1-2 woocommerce woocommerce-page bigshop-animate-scroll wpb-js-composer js-comp-ver-4.12 vc_responsive">
     <script>
-window.fbAsyncInit = function() {
-FB.init({
-    appId      : '530227913843175',
-    xfbml      : true,
-    version    : 'v2.7'
-});
-};
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '530227913843175',
+                xfbml: true,
+                version: 'v2.7'
+            });
+        };
 
-(function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
 
     <div class="se-pre-con"></div>
 
-<div class="main-wrapper ">
+    <div class="main-wrapper ">
         <header>
             <div class="header-container first">
                 @Html.Partial("_topbar")
@@ -160,7 +160,7 @@ FB.init({
 
         <!--.site-content-->
         @Html.Action("Footer", "Home")
-        <div id="back-top" class="hidden-xs"><i class="fa fa-angle-up"></i></div>
+        <div id="back-top"><i class="fa fa-angle-up"></i></div>
         @*@Html.Partial("_Socical")*@
     </div>
     <!--.main wrapper-->
@@ -171,9 +171,9 @@ FB.init({
     <script type='text/javascript' src='/wp-content/plugins/yith-woocommerce-zoom-magnifier/assets/js/frontend.min5fb2.js'></script>
 
     <script type='text/javascript'>
-/* <![CDATA[ */
-var wc_single_product_params = {"i18n_required_rating_text":"Please select a rating","review_rating_required":"yes"};
-/* ]]> */
+        /* <![CDATA[ */
+        var wc_single_product_params = { "i18n_required_rating_text": "Please select a rating", "review_rating_required": "yes" };
+        /* ]]> */
     </script>
 </body>
 </html>

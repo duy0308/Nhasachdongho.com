@@ -3,41 +3,43 @@
         <div class="row">
             <div class="col-sm-5">
                 <p class="hotline-info pull-left">
-                    Chăm sóc khách: 077 386-2125
+                    Chăm sóc khách hàng: 077 386-2125
                 </p>
             </div>
 
             <div class="col-sm-7 pull-right">
                 <div class="pull-right top-menu">
                     <p class="current">
-@if (Session["User"] == null)
-{
-                        <i class="fa fa-lock-alt"></i><span class="hidden-xs">Đăng nhập / Đăng ký</span>
-}
-else
-{
+                        @if (Session["User"] == null)
+                        {
+                            <i class="fa fa-lock-alt"></i><span class="hidden-xs">Đăng nhập / Đăng ký</span>
+                        }
+                        else
+                        {
 
-    <i class="fa fa-unlock-alt"></i><span class="hidden-xs">Thành viên</span>
-}
+                            <i class="fa fa-unlock-alt"></i><span class="hidden-xs">Thành viên</span>
+                        }
                     </p>
                     <div>
                         <div class="menu-top-link-container">
                             <ul id="menu-top-link" class="nav_menu">
- 
-     @if (Session["User"] != null)
-     {
-                                <li id="menu-item-604" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-604"><a href="#">My Account</a></li>
-                                <li id="menu-item-605" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-605"><a href="/Order/checkout">Checkout</a></li>
-                                <li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-606"><a href="/cart/">Cart</a></li>
-                                <li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-606"><a href="/Account/Logoff">Đăng xuất</a></li>
-                                @*<li id="menu-item-607" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-607"><a href="wishlist/index.html">Wishlist</a></li>*@
 
-     }
-     else
-     {
-        <li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-606"><a href="/Account/Login/">Đăng nhập</a></li>
-        <li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-606"><a href="/Account/Register/">Đăng ký</a></li>
-     }
+                                @if (Session["User"] != null)
+                                {
+                                    <li id="menu-item-604" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-604"><a href="#">My Account</a></li>
+                                    <li id="menu-item-605" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-605"><a href="/Order/checkout">Checkout</a></li>
+                                    <li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-606"><a href="/cart/">Cart</a></li>
+                                    <li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-606"><a href="/Account/Logoff">Đăng xuất</a></li>
+                                    @*<li id="menu-item-607" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-607"><a href="wishlist/index.html">Wishlist</a></li>*@
+
+                                }
+                                else
+                                {
+                                    <li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-606"><a href="/Account/Login/">Đăng nhập</a></li>
+                                    <li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-606"><a href="/Account/Register/">Đăng ký</a></li>
+                                    <li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-606"><button class="dn">Đăng nhập bằng facebook</button></li>
+                                    <li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-606"><button class="dn">Đăng nhập bằng Gmail</button></li>
+                                }
                             </ul>
                         </div>
                     </div>
@@ -45,24 +47,24 @@ else
 
 
                 @*<div class="widgets-top pull-right">
-                    <div class="textwidget">
-                        <ul class="nav-top pull-right">
-                            <li>
-                                <a href="#"><span class="fa fa-cube"></span><span class="hidden-xs">Ngôn ngữ</span><i class="fa fa-angle-down"></i></a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">Tiếng Việt</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><span class="hidden-xs">Tiền tệ</span><i class="fa fa-angle-down"></i></a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">VNĐ</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                        <div class="textwidget">
+                            <ul class="nav-top pull-right">
+                                <li>
+                                    <a href="#"><span class="fa fa-cube"></span><span class="hidden-xs">Ngôn ngữ</span><i class="fa fa-angle-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Tiếng Việt</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="hidden-xs">Tiền tệ</span><i class="fa fa-angle-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">VNĐ</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
 
-                </div>*@
+                    </div>*@
             </div>
         </div>
     </div>

@@ -5,10 +5,10 @@
                 <div class="categories-list">
                     <select class="search-catid-field iz-sl" name="catid">
                         <option value="">All categories 1</option>
-                       @foreach (var i in Model)
-                       {
-                        <option value="@i.ID">@i.NameWEB</option>
-                       }
+                        @foreach (var i in Model)
+                        {
+                            <option value="@i.ID">@i.NameWEB</option>
+                        }
                     </select>
                 </div>
                 <input type="search" class="search-field" placeholder="Search Products&hellip;" value="" name="s" title="Search for:" />

@@ -29,14 +29,14 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
     @Styles.Render("~/bundles/csscore")
-    
+
     @*<link rel='stylesheet' id='awesome-css-css' href='/wp-content/themes/bigshop/css/font-awesomecce7.css' type='text/css' media='all' />*@
     <script>
         //paste this code under the head tag or in a separate js file.
         // Wait for window load
-        $(window).load(function() {
-        // Animate loader off screen
-        $(".se-pre-con").fadeOut("slow");;
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
         });
     </script>
     <!-- Insert to your webpage before the </head> -->
@@ -44,7 +44,7 @@
         <link rel="stylesheet" type="text/css" href="/Content/sliderengine/amazingslider-1.css">*@
     @*<script src="/Content/sliderengine/initslider-1.js"></script>*@
     <!-- End of head section HTML codes -->
-        <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
     <!--[if IE 8]><link rel="stylesheet" type="text/css" href="/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
     <link rel="icon" type="image/png" href="/wp-content/uploads/2016/03/favicon-1.png" />
     <style type="text/css" title="dynamic-css" class="options-output">
@@ -85,21 +85,21 @@
 
 <body class="home page page-id-34 page-template page-template-page-templates page-template-page-template page-template-page-templatespage-template-php mmm mega_main_menu-2-1-2 bigshop-animate-scroll wpb-js-composer js-comp-ver-4.12 vc_responsive">
     <script>
-window.fbAsyncInit = function() {
-FB.init({
-    appId      : '530227913843175',
-    xfbml      : true,
-    version    : 'v2.7'
-});
-};
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '530227913843175',
+                xfbml: true,
+                version: 'v2.7'
+            });
+        };
 
-(function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
 
     <div class="se-pre-con"></div>
@@ -164,7 +164,7 @@ FB.init({
         </div>
         <!--.site-content-->
         @{Html.RenderAction("Footer", "Home");}
-        <div id="back-top" class="hidden-xs"><i class="fa fa-angle-up"></i></div>
+        <div id="back-top"><i class="fa fa-angle-up"></i></div>
         @Html.Partial("_Socical")
     </div><!--.main wrapper-->
 

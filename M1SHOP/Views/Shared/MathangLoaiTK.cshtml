@@ -2,16 +2,16 @@
     <div class="top-search text-left">
         <div class="widget woocommerce widget_product_search">
             <form role="search" method="get" class="woocommerce-product-search" action="">
+                <input type="search" class="search-field" placeholder="Search Products&hellip;" value="" name="s" title="Search for:" />
                 <div class="categories-list">
                     <select class="search-catid-field iz-sl" name="catid">
                         <option value="0">All categories</option>
-                       @foreach(var i in Model)
-                       { 
-                        <option value="@i.ID">@i.NameWEB</option>
-                       }
+                        @foreach (var i in Model)
+                        {
+                            <option value="@i.ID">@i.NameWEB</option>
+                        }
                     </select>
                 </div>
-                <input type="search" class="search-field" placeholder="Search Products&hellip;" value="" name="s" title="Search for:" />
                 <button type="submit" class="fa fa-search"></button>
                 <input type="hidden" name="post_type" value="product" />
             </form>
