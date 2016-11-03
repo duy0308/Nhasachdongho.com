@@ -187,29 +187,27 @@ jQuery(document).ready(function($){
 	}
 	
 	//Go to top
-	$(document).on('click', '#back-top', function(){
-		$("html, body").animate({ scrollTop: 0 }, "slow");
+	$(document).on('click', '#back-top', function () {
+	    $("html, body").animate({ scrollTop: 0 }, "slow");
 	});
-	
-	// Scroll
+
+    // Scroll
 	var currentP = 0;
-	
-	$(window).scroll(function(){
-		var headerH = $('.header-container').height();
-		var scrollP = $(window).scrollTop();
-		
-		if($(window).width() > 1024){
-			if(scrollP != currentP){
-				//Back to top
-				if(scrollP >= headerH){
-					$('#back-top').addClass('show');
-				} else {
-					$('#back-top').removeClass('show');
-				}
-				
-				currentP = $(window).scrollTop();
-			}
-		}
+
+	$(window).scroll(function () {
+	    var headerH = 200;
+	    var scrollP = $(window).scrollTop();
+
+	    if (scrollP != currentP) {
+	        //Back to top
+	        if (scrollP >= headerH) {
+	            $('#back-top').addClass('show');
+	        } else {
+	            $('#back-top').removeClass('show');
+	        }
+
+	        currentP = $(window).scrollTop();
+	    }
 	});
 	
 	//tooltip
