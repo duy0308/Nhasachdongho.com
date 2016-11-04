@@ -1,5 +1,7 @@
-﻿@model PagedList.IPagedList<Models.EF.M1Product>
-@using PagedList.Mvc;
+﻿@using PagedList.Mvc
+@using Models.EF
+@using PagedList
+@model IPagedList<M1Product>
 @{
     //ViewBag.Title = Model.NameWEB;
     //ViewBag.Metatitle = Model.MetaTitle;
@@ -51,16 +53,16 @@
             {
                 <div class="item-col col-xs-12 col-sm-4 post-304 product type-product status-publish has-post-thumbnail product_cat-lends instock shipping-taxable purchasable product-type-simple">
                     <div class="product-wrapper">
-                        <a href="/san-pham/@p.SeoTitle-@p.ID" class="woocommerce-LoopProduct-link">
+                        <a href="/san-pham/@(p.SeoTitle)-@(p.ID)" class="woocommerce-LoopProduct-link">
                             <div class="list-col4 ">
                                 <div class="product-image">
-                                    <a href="/san-pham/@p.SeoTitle-@p.ID" title="@p.NameWEB">
-                                        <img width="270" height="200" src="@p.Image" class="primary_image wp-post-image" alt="c3-4" />
-                                        <img width="270" height="200" src="@p.Image" class="secondary_image" />	<span class="shadow"></span>
+                                    <a href="/san-pham/@(p.SeoTitle)-@(p.ID)" title="@(p.NameWEB)">
+                                        <img width="270" height="200" src="@(p.Image)" class="primary_image wp-post-image" alt="c3-4" />
+                                        <img width="270" height="200" src="@(p.Image)" class="secondary_image" />	<span class="shadow"></span>
                                     </a>
 
                                     <div class="quickviewbtn hidden-xs">
-                                        <a class="detail-link" href="/san-pham/@p.SeoTitle-@p.ID" title="@p.NameWEB"><i class="fa fa-external-link"></i></a>
+                                        <a class="detail-link" href="/san-pham/@(p.SeoTitle)-@(p.ID)" title="@(p.NameWEB)"><i class="fa fa-external-link"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +70,7 @@
                                 <div class="gridview">
                                     <div class="product-info">
                                         <h2 class="product-name">
-                                            <a href="/san-pham/@p.SeoTitle-@p.ID">@p.NameWEB</a>
+                                            <a href="/san-pham/@(p.SeoTitle)-@(p.ID)">@p.NameWEB</a>
                                         </h2>
                                         <div class="ratings"><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i></div>
                                         <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}"); VNĐ</span></div>
@@ -79,7 +81,7 @@
                                                 <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
 
                                                     <span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}");VNĐ</span>
-                                                    <a rel="nofollow" href="/Cart/AddSL/@p.ID" class="button product_type_simple">Thêm vào giỏ hàng</a>
+                                                    <a rel="nofollow" href="/Cart/AddSL/@(p.ID)" class="button product_type_simple">Thêm vào giỏ hàng</a>
                                                 </p>
                                             </li>
 
@@ -90,7 +92,6 @@
                                                         <a href="#" rel="nofollow" data-product-id="304" data-product-type="simple" class="add_to_wishlist">
                                                             Add to Wishlist
                                                         </a>
-
                                                     </div>
 
                                                     <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
@@ -123,10 +124,10 @@
                                 <div class="listview">
                                     <div class="product-info">
                                         <h2 class="product-name">
-                                            <a href="/san-pham/@p.SeoTitle-@p.ID">@p.NameWEB</a>
+                                            <a href="/san-pham/@(p.SeoTitle)-@(p.ID)">@p.NameWEB</a>
                                         </h2>
                                         <div class="ratings"><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i></div>
-                                        <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}"); VNĐ</div>
+                                        <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}"); VNĐ</span></div>
                                         <div class="product-desc">
                                             <p>@p.Description</p>
                                         </div>
@@ -191,7 +192,7 @@
         </div>
         <!---------------------------------------------------------------------------------------->
         <!--PHÂN TRANG-->
-        @Html.PagedListPager(Model, page => Url.Action("ProductListView", new { page }))
+        @Html.PagedListPager(Model, page => Url.Action("ListNew", new { page }))
 
         <div class="toolbar tb-bottom row" style="text-align:center;">
 
@@ -218,38 +219,38 @@
 </div>
 
 <script>
-        $pageNo = 0;
-        $MHLID = 0;
-        $pageCount = @ViewBag.PageCount;
-        $(function () {
-            loadPage();
-            $("#more").click(function () {
-                if ($pageNo < $pageCount-1) {
-                    $pageNo++;
-                    loadPage();
-                }
+    $pageNo = 0;
+    $MHLID = 0;
+    $pageCount = @ViewBag.PageCount;
+    $(function () {
+        loadPage();
+        $("#more").click(function () {
+            if ($pageNo < $pageCount-1) {
+                $pageNo++;
+                loadPage();
+            }
 
-            });
-            //$(window).scroll(function () {
-            //    if ($(window).height() + $(window).scrollTop() == $(document).height()) {
-            //        if ($pageNo < $pageCount-1) {
-            //            $pageNo++;
-            //            loadPage();
-            //        }
-            //    }
-            //});
         });
+        //$(window).scroll(function () {
+        //    if ($(window).height() + $(window).scrollTop() == $(document).height()) {
+        //        if ($pageNo < $pageCount-1) {
+        //            $pageNo++;
+        //            loadPage();
+        //        }
+        //    }
+        //});
+    });
 
-        function loadPage() {
-            $(".loading").show();
-            $.ajax({
-                url: "/Product/LoadPage",
-                data: { PageNo: $pageNo, idLMH: $MHLID},
-                success: function (response) {
-                    $(response).appendTo(".products");
-                    $(".loading").hide();
-                }
-            });
-        }
+    //function loadPage() {
+    //    $(".loading").show();
+    //    $.ajax({
+    //        url: "/Product/LoadPage",
+    //        data: { PageNo: $pageNo, idLMH: $MHLID},
+    //        success: function (response) {
+    //            $(response).appendTo(".products");
+    //            $(".loading").hide();
+    //        }
+    //    });
+    //}  -- Act chưa có view
 </script>
 

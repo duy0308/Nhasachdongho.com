@@ -1,12 +1,14 @@
 ﻿@using Models.EF
+@model IEnumerable<M1Product>
+
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/ProductList.cshtml";}
-@model IEnumerable<M1Product>
-@foreach (var item in Model)
-{
-    <div class="row">
-        <div>@item.ID</div>
-        <img src="~/@item.Image" />
-    </div>
+    Layout = "~/Views/Shared/ProductList.cshtml";
+    foreach (var item in Model)
+    {
+        <div class="row">
+            <div>@item.ID</div>
+            <img src="~/@item.Image" />
+        </div>
+    }
 }

@@ -1,10 +1,6 @@
 ﻿@model PagedList.IPagedList<Models.EF.M1Product>
 @using PagedList.Mvc;
 @{
-    //ViewBag.Title = Model.NameWEB;
-    //ViewBag.Metatitle = Model.MetaTitle;
-    //ViewBag.Metadescription = Model.MetaDescriptions;
-    //ViewBag.Metaimage = Request.Url.Host + "" + Model.Image;
     Layout = "~/Views/Shared/ProductList.cshtml";
 }
 <style>
@@ -71,14 +67,14 @@
                                             <a href="/san-pham/@p.SeoTitle-@p.ID">@p.NameWEB</a>
                                         </h2>
                                         <div class="ratings"><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i></div>
-                                        <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}"); VNĐ</span></div>
+                                        <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}")VNĐ</span></div>
                                     </div>
                                     <div class="actions">
                                         <ul class="add-to-links clearfix">
                                             <li>
                                                 <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
 
-                                                    <span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}");VNĐ</span>
+                                                    <span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}")VNĐ</span>
                                                     <a rel="nofollow" href="/Cart/AddSL/@p.ID" class="button product_type_simple">Thêm vào giỏ hàng</a>
                                                 </p>
                                             </li>
@@ -126,7 +122,7 @@
                                             <a href="/san-pham/@p.SeoTitle-@p.ID">@p.NameWEB</a>
                                         </h2>
                                         <div class="ratings"><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i><i class="icon star-empty"></i></div>
-                                        <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}"); VNĐ</div>
+                                        <div class="price-box"><span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}")VNĐ</span></div>
                                         <div class="product-desc">
                                             <p>@p.Description</p>
                                         </div>
@@ -136,7 +132,7 @@
                                             <li>
                                                 <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
 
-                                                    <span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}"); VNĐ</span>
+                                                    <span class="woocommerce-Price-amount amount">@Html.FormatValue(p.Price, "{0:#,###}")VNĐ</span>
                                                     <a rel="nofollow" href="/Cart/AddSL/@p.ID" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
                                                 </p>
                                             </li>
@@ -220,7 +216,7 @@
 <script>
         $pageNo = 0;
         $MHLID = 0;
-        $pageCount = @ViewBag.PageCount;
+        $pageCount = @Model.PageCount;
         $(function () {
             loadPage();
             $("#more").click(function () {
@@ -240,16 +236,16 @@
             //});
         });
 
-        function loadPage() {
-            $(".loading").show();
-            $.ajax({
-                url: "/Product/LoadPage",
-                data: { PageNo: $pageNo, idLMH: $MHLID},
-                success: function (response) {
-                    $(response).appendTo(".products");
-                    $(".loading").hide();
-                }
-            });
-        }
+        //function loadPage() {
+        //    $(".loading").show();
+        //    $.ajax({
+        //        url: "/Product/LoadPage",
+        //        data: { PageNo: $pageNo, idLMH: $MHLID},
+        //        success: function (response) {
+        //            $(response).appendTo(".products");
+        //            $(".loading").hide();
+        //        }
+        //    });
+        //}  -- Không tìm thấy view
 </script>
 

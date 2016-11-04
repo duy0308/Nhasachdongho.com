@@ -11,16 +11,28 @@ using Models.DAO;
 
 namespace M1SHOP.Controllers
 {
-    public class ProductController : dbController
+    public class ProductController : Controller
     {
+        private ProductDAO _daoProduct = new ProductDAO();
+        private ProductPhotoDAO _daoProductPhoto = new ProductPhotoDAO();
+
+
+        #region Get Method
         // GET: Product
-        public ActionResult Index(int page=1)
+
+        public ActionResult Index(int page = 1)
         {
-            int pageSize = 30;
-            int pageNumber = page;
-            var model = db.M1Product.OrderByDescending(p => p.ModifiedDate).ToList();
-            return View(model.ToPagedList(pageNumber, pageSize));
+            try
+            {
+                var model = _daoProduct.GetAllProduct(page);
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
         }
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -28,47 +40,73 @@ namespace M1SHOP.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            M1Product model;
             try
             {
-                model = db.M1Product.Find(id);
+                M1Product model = _daoProduct.GetProductDetail((int)id);
 
-                if (model == null)
+                if (model == null) // Không tồn tại sản phẩm có mã id
                 {
                     return HttpNotFound();
                 }
+                else
+                {
+                    //Thông tin chung của view
+                    ViewBag.Title = model.NameWEB;
+                    ViewBag.Metatitle = model.MetaTitle;
+                    ViewBag.Metadescription = model.MetaDescriptions;
+                    ViewBag.Metaimage = Request.Url.Host + model.Image;
+
+                    // Dữ liệu gửi ra View
+                    ViewData["lstProductPhoto"] = _daoProductPhoto.GetPhotoByID(model.ID);
+                }
+                return View(model);
             }
             catch (Exception ex)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+        }
 
-            return View(model);
-        }
-        public ActionResult ListNew(int? page)
+        public ActionResult ListNew(int page = 1)
         {
-            int pageSize = 30;
-            int pageNumber = (page ?? 1);
-            var model = db.M1Product.Where(m => m.Status == true && m.Showhome == true).OrderByDescending(p => p.CreatedDate).Take(120).ToList();
-            return View(model.ToPagedList(pageNumber, pageSize));
-        }
-        public ActionResult ProductListView(int id=0, int page = 1)
-        {
-            ViewBag.idMHL = id;
-            var model = new List<M1Product>();
-            if (id != null && id > 0)
+            try
             {
-                var sanpham = new ProductGetDAO();
-                model = sanpham.GetByGroupID(id);
+                // Lấy dữ liệu gửi ra view
+                var model = _daoProduct.GetLstNewProduct(page);
+                return View(model);
             }
-            int pageSize = 20;
-            int pageNumber = page;// (page ?? 1);
-            /****************************/
-            ViewBag.pageCount = (int)Math.Ceiling(1.0 * model.Count / pageSize);
-            /*********************************/
-            return View(model.ToPagedList(pageNumber, pageSize));
-            
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
         }
+
+        public ActionResult ProductListView(int id = 0, int page = 1)
+        {
+            try
+            {
+                ViewBag.idMHL = id;
+                if (id > 0)
+                {
+                    int pageSize = 6;
+                    var model = _daoProduct.GetProductByGroupID(id, page, pageSize);
+                    return View(model);
+                }
+                else
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+            }
+            catch(Exception ex)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+        #endregion
+
+
+        #region Post Method
+
         [HttpPost]
         public ActionResult Details(M1Product model)
         {
@@ -81,12 +119,21 @@ namespace M1SHOP.Controllers
             };
             return RedirectToAction("Index", "Cart");
         }
-        public ActionResult List(int PageSize = 6)
-        {
-            var Rowcount = db.M1Product.Count();
-            ViewBag.PageCount = Math.Ceiling(1.0 * Rowcount / PageSize);
-            return View("List");
-        }
+
+
+        #endregion
+
+
+        /*************** Không tìm thấy View ***************/
+
+
+        //public ActionResult List(int PageSize = 6)
+        //{
+        //    var Rowcount = db.M1Product.Count();
+        //    ViewBag.PageCount = Math.Ceiling(1.0 * Rowcount / PageSize);
+        //    return View("List");
+        //}
+
         //public ActionResult LoadPage(int PageNo = 0, int PageSize = 6)
         //{
         //    var model = db.M1Product.OrderBy(p => p.CREATED).Skip(PageNo * PageSize).Take(PageSize);
@@ -117,6 +164,6 @@ namespace M1SHOP.Controllers
         //    return (int)Math.Ceiling(1.0 * rowCount / PageSize);
         //}
 
-        
+
     }
 }
