@@ -1690,6 +1690,7 @@
     <Content Include="wp-content\plugins\yith-woocommerce-zoom-magnifier\assets\js\frontend.min5fb2.js" />
     <Content Include="wp-content\plugins\yith-woocommerce-zoom-magnifier\assets\js\jquery.carouFredSel.min5fb2.js" />
     <Content Include="wp-content\plugins\yith-woocommerce-zoom-magnifier\assets\js\yith_magnifier.min5fb2.js" />
+    <Content Include="wp-content\Sytenew.css" />
     <Content Include="wp-content\themes\bigshop\css\animate8a54.css" />
     <Content Include="wp-content\themes\bigshop\css\bootstrap-theme46df.css" />
     <Content Include="wp-content\themes\bigshop\css\bootstrap46df.css" />
